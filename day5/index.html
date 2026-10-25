@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Day 5 Assignment - Asynchronous user directory fetching from JSONPlaceholder API with real-time client-side name filtering.">
+  <title>Day 5 - User Directory &amp; Filter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="users.js" defer></script>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-badge">Day 5 Assignment</div>
+      <h1 class="header-title">User Directory &amp; Live Search</h1>
+      <p class="header-subtitle">
+        Async data fetching, real-time client-side filtering, and resilient state handling using vanilla JavaScript.
+      </p>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-card">
+      <!-- Action Toolbar -->
+      <section class="toolbar">
+        <div class="action-group">
+          <button id="load-users" type="button" class="btn-primary">
+            <span class="btn-icon">⚡</span>
+            <span class="btn-text">Load Users</span>
+          </button>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-input" class="filter-label">Filter by name:</label>
+          <div class="input-wrapper">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input
+              id="filter-input"
+              type="text"
+              class="filter-input"
+              placeholder="Search users by name..."
+              autocomplete="off"
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Status Feedback -->
+      <section class="status-section" aria-live="polite">
+        <p id="status"></p>
+      </section>
+
+      <!-- Users Grid List -->
+      <section class="results-section">
+        <ul id="users-list"></ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Web Development Foundations &bull; Day 5 &bull; Powered by JSONPlaceholder</p>
+    </footer>
+  </div>
+</body>
+</html>

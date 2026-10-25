@@ -1,6 +1,6 @@
 # Day 2: Introduction to CSS & Styling Fundamentals
 
-Welcome to **Day 2** of our Web Development journey! On Day 1, we created raw HTML pages. Today, we learn **CSS (Cascading Style Sheets)** to transform plain text into a modern, beautifully styled web page.
+Welcome to **Day 2** of **my web development journey**! On Day 1, I created raw HTML pages. Today, I use **CSS (Cascading Style Sheets)** to transform plain text into a modern, beautifully styled web page.
 
 ---
 
@@ -12,13 +12,13 @@ If **HTML** is the bare concrete walls, roof, and plumbing of a house, **CSS** i
 - Choosing nice modern furniture and light fixtures (`font-family`, `border-radius`).
 - Deciding which doors line up side-by-side (`display`, `flex`, `grid`).
 
-Without CSS, every webpage looks like an unstyled 1995 legal document with plain black Times New Roman text and blue underlined links. CSS gives your website its visual identity and personality!
+Without CSS, every webpage looks like an unstyled 1995 legal document with plain black Times New Roman text and blue underlined links. CSS gives my website its visual identity and personality!
 
 ---
 
 ## 2. How CSS Connects to HTML
 
-To apply CSS to an HTML document, we place a `<link>` tag inside the `<head>` of our HTML file:
+To apply CSS to an HTML document, I place a `<link>` tag inside the `<head>` of my HTML file:
 
 ```html
 <head>
@@ -27,7 +27,7 @@ To apply CSS to an HTML document, we place a `<link>` tag inside the `<head>` of
 ```
 
 - `rel="stylesheet"`: Tells the browser: *"This linked file contains styling rules."*
-- `href="style.css"`: The path to our stylesheet file sitting in the same folder.
+- `href="style.css"`: The path to my stylesheet file sitting in the same folder.
 
 ---
 
@@ -53,9 +53,9 @@ h1 {
 
 | Selector Type | Syntax in CSS | Example in HTML | When to Use It |
 | :--- | :--- | :--- | :--- |
-| **Element Selector** | `p { ... }` | `<p>Text</p>` | When you want to style **all** elements of that type across the whole page (e.g., all paragraphs). |
-| **Class Selector** | `.card { ... }` | `<div class="card">` | When you want to style **a specific group** of elements (you can reuse the same class on multiple items). Starts with a dot (`.`). |
-| **ID Selector** | `#_button { ... }` | `<button id="_button">` | When you want to style **one unique, specific element** on the page. Starts with a hash (`#`). |
+| **Element Selector** | `p { ... }` | `<p>Text</p>` | When styling **all** elements of that type across the whole page (e.g., all paragraphs). |
+| **Class Selector** | `.card { ... }` | `<div class="card">` | When styling **a specific group** of elements (reusable across multiple items). Starts with a dot (`.`). |
+| **ID Selector** | `#_button { ... }` | `<button id="_button">` | When styling **one unique, specific element** on the page. Starts with a hash (`#`). |
 
 ---
 
@@ -99,8 +99,8 @@ Every single element on a web page is treated by the browser as an invisible rec
 - **Styled Data Table (`.data-table`)**: Uses `border-collapse: collapse` to turn clunky double lines into crisp single borders, with light-gray alternating rows ("zebra striping") for effortless readability.
 - **Form Controls (`input`, `textarea`, `button`)**:
   - `label { display: block; }`: Ensures form labels sit neatly above input fields.
-  - `:focus` pseudo-class: Adds an interactive blue glow around the input box whenever the user clicks to type.
-  - Hover states (`:hover`): Darkens the submit button when the user hovers their mouse, giving instant tactile feedback.
+  - `:focus` pseudo-class: Adds an interactive blue glow around the input box whenever typing.
+  - Hover states (`:hover`): Darkens the submit button when the mouse hovers over it, giving instant tactile feedback.
 
 ### 6.3 `style.css`
 Contains clean, beginner-level CSS organized into numbered sections:
@@ -112,12 +112,13 @@ Contains clean, beginner-level CSS organized into numbered sections:
 
 ---
 
-## 7. How to Open and View
+## 7. How to View in Browser (Using Live Server)
 
-1. Open your browser and navigate to:
-   ```
-   /home/clarryson/domcss/webdevelopment/Day2/index.html
-   ```
-2. Hover over the navigation links and observe the background color transition.
-3. Click **About** to inspect the styled table, cards, and interactive feedback form.
-4. Try clicking into the email input box to see the smooth blue focus highlight!
+I use the **VS Code Live Server Extension** to view and test my pages:
+
+1. In VS Code, open `Day2/index.html` or `Day2/about.html`.
+2. Right-click anywhere in the file and select **"Open with Live Server"** (or click **"Go Live"** on the bottom status bar).
+3. The page opens immediately at `http://127.0.0.1:5500/Day2/index.html`.
+4. Hover over the navigation links and observe the background color transition.
+5. Click **About** to inspect the styled table, cards, and interactive feedback form.
+6. Any CSS edits made in `style.css` are instantly hot-reloaded by Live Server!

@@ -43,8 +43,8 @@ function searchNotes(word) {
  * How it works:
  * - First, check if the array has 0 notes. If so, return null immediately.
  * - Assume the first note (index 0) is the longest to start.
- * - Loop through the rest of the notes. If we find one with a longer text length,
- *   we update our 'longest' variable to hold that note.
+ * - Loop through the rest of the notes. If one has a longer text length,
+ *   update the 'longest' variable to hold that note.
  */
 function longestNote() {
   // Edge case: if there are no notes at all, return null
@@ -70,10 +70,10 @@ function longestNote() {
  * Returns an object like: { personal: 2, study: 2, work: 1 }
  *
  * How it works:
- * - We start with an empty object: const counts = {};
- * - We loop over every note in the array.
- * - If we haven't seen this category yet, set it to 1.
- * - If we have already seen it, add 1 to the existing count.
+ * - Start with an empty object: const counts = {};
+ * - Loop over every note in the array.
+ * - If not seen this category yet, set it to 1.
+ * - If already seen it, add 1 to the existing count.
  */
 function countByCategory() {
   const counts = {};
@@ -112,7 +112,7 @@ function getSummary() {
   const counts = countByCategory();
   const categoryParts = [];
 
-  // Loop through each category key in our counts object
+  // Loop through each category key in the counts object
   for (const category in counts) {
     const count = counts[category];
     categoryParts.push(`${count} ${category}`);
@@ -186,7 +186,7 @@ function addNote(text, category) {
   }
   const newId = highestId + 1;
 
-  // Create the new note object and push it into our notes array
+  // Create the new note object and push it into the notes array
   const newNote = {
     id: newId,
     text: text,

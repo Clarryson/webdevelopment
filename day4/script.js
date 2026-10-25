@@ -136,7 +136,7 @@ function restoreDraft() {
 }
 
 // =============================================================================
-// Event Listeners (Connecting user actions to our functions)
+// Event Listeners (Connecting user actions to functions)
 // =============================================================================
 
 // When user types inside the textarea: update counters and auto-save the draft

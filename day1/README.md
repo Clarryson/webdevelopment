@@ -1,6 +1,6 @@
 # Day 1: Web Foundations & HTML Essentials
 
-Welcome to **Day 1** of our Web Development journey! This guide breaks down the core building blocks of the World Wide Web in simple, beginner-friendly language.
+Welcome to **Day 1** of **my web development journey**! This guide breaks down the core building blocks of the World Wide Web in simple, beginner-friendly language, documenting everything I learned and built.
 
 ---
 
@@ -8,10 +8,10 @@ Welcome to **Day 1** of our Web Development journey! This guide breaks down the 
 
 Think of a web page like a human body or a building:
 - **HTML (HyperText Markup Language)** is the **skeleton and bricks**. It gives the page structure, decides where titles go, where text paragraphs sit, where buttons appear, and where forms are placed.
-- **CSS** (which we learn on Day 2) is the **clothing and paint**. It controls colors, fonts, spacing, and layouts.
-- **JavaScript** (which we learn on Day 3) is the **muscles and brain**. It makes things interactive, like popping up alerts or calculating numbers when you click a button.
+- **CSS** (which I learn on Day 2) is the **clothing and paint**. It controls colors, fonts, spacing, and layouts.
+- **JavaScript** (which I learn on Day 3) is the **muscles and brain**. It makes things interactive, like popping up alerts or calculating numbers when you click a button.
 
-HTML is **not a programming language**; it is a **markup language**. You write "tags" to tell the browser: *"Hey browser, treat this text as a big headline!"* or *"Treat this text as a clickable link!"*
+HTML is **not a programming language**; it is a **markup language**. I write "tags" to tell the browser: *"Hey browser, treat this text as a big headline!"* or *"Treat this text as a clickable link!"*
 
 ---
 
@@ -28,7 +28,7 @@ Every piece of content in HTML is wrapped in a tag:
 - `</p>` is the **closing tag** (notice the forward slash `/`, which tells the browser: "this paragraph has ended").
 
 > **The Sandwich Rule:**  
-> Always remember to close your tags! If you open a tag like `<h2>`, you must close it with `</h2>`, not another `<h2>`. Leaving tags unclosed confuses the browser.
+> Always remember to close your tags! If an opening tag like `<h2>` is used, it must be closed with `</h2>`, not another `<h2>`. Leaving tags unclosed confuses the browser.
 
 ---
 
@@ -54,16 +54,16 @@ Every HTML file starts with a standard boilerplate:
 1. `<!DOCTYPE html>`: Tells the browser: *"We are writing modern, standard HTML5."*
 2. `<html lang="en">`: The root element that holds everything on the page. `lang="en"` tells screen readers and search engines that the page is in English.
 3. `<head>`: The "brain" of the page. Information here is for the browser and search engines (metadata), not displayed directly on the screen.
-   - `<meta charset="UTF-8" />`: Ensures special characters (like emojis 🚀, accents, and punctuation) display correctly without turning into weird symbols.
+   - `<meta charset="UTF-8" />`: Ensures special characters (like emojis 🚀, accents, and punctuation) display correctly without turning into strange symbols.
    - `<meta name="viewport" content="width=device-width, initial-scale=1.0" />`: Makes sure the website scales nicely on mobile phones and tablets instead of being zoomed out.
-   - `<title>`: The text that appears on the browser tab at the very top of your screen.
+   - `<title>`: The text that appears on the browser tab at the very top of the screen.
 4. `<body>`: The "body" of the page. **Everything inside the body is what the user actually sees and interacts with** on their screen!
 
 ---
 
 ## 4. Semantic HTML: Why Meaning Matters
 
-In early web design, people used generic `<div>` tags for everything. Today, we use **Semantic Tags**—tags that clearly describe their purpose to humans, search engines, and screen readers for visually impaired users.
+In early web design, developers used generic `<div>` tags for everything. Today, I use **Semantic Tags**—tags that clearly describe their purpose to humans, search engines, and screen readers for visually impaired users.
 
 | Tag | What It Represents | Analogy |
 | :--- | :--- | :--- |
@@ -89,7 +89,7 @@ In early web design, people used generic `<div>` tags for everything. Today, we 
 ---
 
 ### 5.2 `about.html` (The About & Feedback Page)
-This file demonstrates several key HTML features:
+This page demonstrates several key HTML features:
 
 #### 1. Unordered Lists (`<ul>` and `<li>`)
 - `<ul>` stands for **Unordered List** (bullet points).
@@ -124,23 +124,21 @@ Tables display rows and columns of structured data:
 ```
 
 #### 3. Interactive Forms (`<form>`, `<label>`, `<input>`, `<textarea>`, `<button>`)
-Forms allow visitors to submit information back to our app:
+Forms allow visitors to submit information back to the application:
 - `<form>`: The wrapper that groups form inputs together.
-- `<label for="email-input">`: A descriptive label. Clicking the label automatically puts your typing cursor inside the linked input box!
-- `<input type="email" id="email-input" required>`: A single-line text box specifically designed for email addresses. The browser automatically checks if you typed an `@` symbol!
+- `<label for="email-input">`: A descriptive label. Clicking the label automatically puts the typing cursor inside the linked input box!
+- `<input type="email" id="email-input" required>`: A single-line text box specifically designed for email addresses. The browser automatically checks if an `@` symbol is included!
 - `<textarea>`: A multi-line box for longer messages or descriptions.
 - `<button type="submit">`: A clickable button that submits the form.
 
 ---
 
-## 6. How to Open and View These Pages
+## 6. How to View in Browser (Using Live Server)
 
-1. Open your computer's file manager and locate:
-   ```
-   /home/clarryson/domcss/webdevelopment/day1/index.html
-   ```
-2. Double-click `index.html` to open it in your default web browser (Chrome, Firefox, Edge).
-3. Click the **About** link in the navigation menu to navigate to `about.html`.
-4. Click the **Home** link to return back to `index.html`.
+I use the **VS Code Live Server Extension** to view and test my pages:
 
-Congratulations! You have mastered the fundamentals of HTML structure, links, lists, tables, and forms.
+1. In VS Code, open `day1/index.html`.
+2. Right-click anywhere inside `index.html` and click **"Open with Live Server"** (or click the **"Go Live"** button on the bottom status bar).
+3. The page opens immediately in the browser at `http://127.0.0.1:5500/day1/index.html`.
+4. Click the **About** link in the navigation menu to navigate to `about.html`.
+5. Whenever any change is saved in the code, **Live Server reloads the page instantly**!

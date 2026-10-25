@@ -1,6 +1,6 @@
 # SnapShare: Complete Scaling Plan & System Architecture Guide (Day 7)
 
-Welcome to the comprehensive, beginner-friendly architectural guide for **SnapShare**—a photo-sharing application built to handle millions of active users uploading pictures and scrolling through social feeds.
+Welcome to **Day 7** of **my web development journey**! This is my comprehensive architectural guide and capacity planning specification for **SnapShare**—a photo-sharing application built to handle millions of active users uploading pictures and scrolling through social feeds.
 
 This document breaks down every concept, mathematical estimation, architectural component, and engineering trade-off in **plain, everyday layman's terms** with relatable real-world analogies.
 
@@ -30,21 +30,21 @@ This document breaks down every concept, mathematical estimation, architectural 
 Imagine an app like Instagram or Pinterest called **SnapShare**. People open the app to post photos of their meals, vacations, and pets, and they scroll through an endless feed of photos shared by friends and creators they follow.
 
 ### The Problem: Why a Normal Computer Fails
-When you build a project on your laptop, it runs great for you and a few friends. But imagine:
+When building a project on a laptop, it runs great for a few friends. But imagine:
 - **10 Million Registered Users** have an account on SnapShare.
 - **1 Million People** use the app every single day.
 - They upload **1 million new photos** every day.
 - They view **50 million pages of photos** every day.
 
 > **The Restaurant Kitchen Analogy:**  
-> Cooking dinner for a family of 4 in your home kitchen is easy. But cooking dinner for 50,000 hungry fans at a stadium during halftime requires a completely different setup: you need multiple chefs, dedicated prep stations, separate order takers, large industrial freezers, and a clear ticketing system.  
+> Cooking dinner for a family of 4 in a home kitchen is easy. But cooking dinner for 50,000 hungry fans at a stadium during halftime requires a completely different setup: multiple chefs, dedicated prep stations, separate order takers, large industrial freezers, and a clear ticketing system.  
 > **System scaling** is simply designing that industrial kitchen for computer software so the app never slows down, freezes, or crashes.
 
 ---
 
 ## 2. The Capacity Math in Plain English
 
-Before writing code or buying servers, software architects do "back-of-the-envelope" math. We need to know how much traffic to expect and how much storage space we must buy.
+Before writing code or buying servers, software architects do "back-of-the-envelope" math. We need to know how much traffic to expect and how much storage space must be provisioned.
 
 ### 2.1 Daily Active Users (DAU)
 - **Total registered users:** $10,000,000$ (10 Million).
@@ -53,7 +53,7 @@ Before writing code or buying servers, software architects do "back-of-the-envel
 $$\text{Daily Active Users (DAU)} = 10,000,000 \times 10\% = 1,000,000\text{ people each day}$$
 
 > **The Gym Analogy:**  
-> Just like a fitness club might have 10,000 total signed-up members, but only about 1,000 show up to exercise on an average Tuesday. Our "active gym-goers" count is **1 Million people**.
+> Just like a fitness club might have 10,000 total signed-up members, but only about 1,000 show up to exercise on an average Tuesday. The "active gym-goers" count is **1 Million people**.
 
 ---
 
@@ -64,10 +64,10 @@ Each active user uploads $1$ photo every day.
 
 #### Average Uploads Per Second:
 $$\text{Average Uploads/sec} = \frac{1,000,000\text{ uploads}}{86,400\text{ seconds}} \approx 11.57\text{ uploads/second}$$
-On average, about **$12$ photos arrive on our servers every second**, day and night.
+On average, about **$12$ photos arrive on the servers every second**, day and night.
 
 #### Peak Uploads Per Second ($5\times$ Rush Hour):
-People don't upload photos at a steady pace while sleeping at 3 AM. Uploads peak during lunch breaks, evening leisure hours, holidays, and concert events. We use an industry-standard **$5\times$ peak multiplier**:
+People don't upload photos at a steady pace while sleeping at 3 AM. Uploads peak during lunch breaks, evening leisure hours, holidays, and concert events. An industry-standard **$5\times$ peak multiplier** is applied:
 $$\text{Peak Uploads/sec} = 11.574 \times 5 \approx 57.87\text{ uploads/second}$$
 During the busiest rush hours, **almost $58$ photos are uploaded every single second**.
 
@@ -83,12 +83,12 @@ On average, users are tapping "refresh" or scrolling to load a new page of photo
 
 #### Peak Feed Views Per Second ($5\times$ Rush Hour):
 $$\text{Peak Views/sec} = 578.7037 \times 5 \approx 2,893.52\text{ views/second}$$
-During rush hour, our system must deliver **almost $2,894$ feed pages every single second** with zero lag!
+During rush hour, the system must deliver **almost $2,894$ feed pages every single second** with zero lag!
 
 ---
 
 ### 2.4 Photo Storage Per Year
-Every time a user uploads a photo, our system stores two things:
+Every time a user uploads a photo, the system stores two things:
 1. **The Original High-Resolution Photo:** $2\text{ MB}$ (Megabytes).
 2. **A Small Thumbnail Preview:** $50\text{ KB}$ ($0.05\text{ MB}$) used for quick grid scrolling.
 3. **Total storage per upload:** $2\text{ MB} + 0.05\text{ MB} = 2.05\text{ MB}$.
@@ -124,7 +124,7 @@ Every time a user uploads a photo, our system stores two things:
 ## 3. Read-Heavy vs. Write-Heavy: What It Means
 
 ### The Verdict: SnapShare is Overwhelmingly Read-Heavy!
-Let's compare the daily actions:
+Comparing daily actions:
 - **Writes (Uploading Photos):** $1,000,000$ requests per day.
 - **Reads (Viewing Feeds):** $50,000,000$ requests per day.
 
@@ -132,9 +132,9 @@ $$\text{Read to Write Ratio} = \frac{50,000,000\text{ reads}}{1,000,000\text{ wr
 
 For every single photo someone uploads, people view **50 feed pages**. And because each feed page displays between 10 to 20 thumbnails, the raw number of picture download requests is between **$500:1$ and $1000:1$** compared to uploads!
 
-### What This Means For Our Engineering Design:
-1. **Focus on Caching:** Since people read the same posts repeatedly, we should keep copies of feeds and pictures in super-fast memory (RAM) and at local internet hubs (CDNs) so we don't have to recalculate or re-fetch them from the main database every time.
-2. **Make Reads Independent of Writes:** We must split the database into one machine for saving new data (Writes) and multiple duplicate machines for viewing data (Reads).
+### What This Means For System Design:
+1. **Focus on Caching:** Since people read the same posts repeatedly, keep copies of feeds and pictures in super-fast memory (RAM) and at local edge hubs (CDNs) so they don't have to be recalculated from the main database every time.
+2. **Make Reads Independent of Writes:** Split the database into one machine for saving new data (Writes) and multiple duplicate machines for viewing data (Reads).
 3. **Keep Uploads Painless & Quick:** When someone uploads a photo, don't make them wait on a loading bar while the server resizes it. Take the photo immediately, say "Got it!", and do the heavy thumbnail work quietly in the background.
 
 ---
@@ -145,10 +145,10 @@ A common beginner mistake is to store photo files directly inside a SQL database
 
 ### The Real-World Analogy: The Filing Cabinet vs. The Warehouse
 > Imagine an office with a metal **filing cabinet**. A filing cabinet is designed to hold thin, neat paper forms (names, phone numbers, addresses, account IDs).  
-> If you start shoving thick, heavy, leather-bound photo albums inside the filing cabinet:
+> If thick, heavy, leather-bound photo albums are shoved inside the filing cabinet:
 > - The drawers jam and won't slide open.
 > - The cabinet gets so heavy the floor cracks.
-> - When someone asks for John's phone number, the clerk has to dig through piles of heavy photo albums just to find the index card.
+> - When looking for John's phone number, the clerk must dig through piles of heavy photo albums just to find the index card.
 > - Making a safety photocopy of the cabinet takes 3 days instead of 5 minutes.
 
 ### The Technical Reasons:
@@ -158,7 +158,7 @@ A common beginner mistake is to store photo files directly inside a SQL database
 4. **Huge Costs:** High-speed SSD database storage is very expensive ($\$0.10$–$\$0.25$ per GB/month). 
 
 ### Where Do Photos Go Instead? **Object Storage**
-We store the photos in dedicated **Cloud Object Storage** (like Amazon S3, Google Cloud Storage, or MinIO):
+Photos are stored in dedicated **Cloud Object Storage** (like Amazon S3, Google Cloud Storage, or MinIO):
 - **Like a giant, automated warehouse:** Object storage is built specifically for huge, unchanging files. It has virtually infinite space and costs $10\times$ less ($\approx \$0.02$ per GB/month).
 - **The Database Only Stores The Receipt (Metadata):**  
   The database keeps a simple, clean, lightweight text record:
@@ -182,14 +182,14 @@ Here is a breakdown of all 9 core pieces of the SnapShare system, explained with
 - **Analogy:** The customer walking into the store or holding the catalog.
 
 ### 2. CDN (Content Delivery Network - e.g., Cloudflare, CloudFront)
-- **What problem it solves:** Distance causes delay. If our main servers are in Virginia (USA), a user scrolling in London, Tokyo, or Nairobi would wait seconds for each picture to cross the ocean.
+- **What problem it solves:** Distance causes delay. If the main servers are in Virginia (USA), a user scrolling in London, Tokyo, or Nairobi would wait seconds for each picture to cross the ocean.
 - **How it works:** The CDN has thousands of small servers located all around the world. The first time someone in Nairobi opens a photo, the CDN downloads a copy and keeps it locally. The next 10,000 users in Nairobi get the photo instantly from their local neighborhood server in milliseconds!
-- **Analogy:** Your local neighborhood convenience store having fresh milk so you don't have to drive 200 miles to the dairy farm every morning.
+- **Analogy:** A local neighborhood convenience store having fresh milk so customers don't have to drive 200 miles to the dairy farm every morning.
 
 ### 3. Load Balancer (e.g., NGINX, AWS ALB, Envoy)
 - **What problem it solves:** If 100,000 people hit a single server at once, it overheats and crashes.
 - **How it works:** The load balancer sits at the front door. As requests arrive, it distributes them evenly across a fleet of application servers: *"Server 1 take this request, Server 2 take that one, Server 3 take the next."* If Server 2 breaks down, the load balancer stops sending it traffic automatically.
-- **Analogy:** The friendly usher or bank queue manager directing people to the next available teller window.
+- **Analogy:** An airport usher or bank queue manager directing people to the next available teller window.
 
 ### 4. App Servers (Stateless Web & API Cluster)
 - **What problem it solves:** The brains of the operation that handle business logic.
@@ -198,16 +198,16 @@ Here is a breakdown of all 9 core pieces of the SnapShare system, explained with
 
 ### 5. Cache (In-Memory Redis Cluster)
 - **What problem it solves:** Looking up information on a hard drive takes 5 to 10 milliseconds. Looking it up in computer RAM memory takes 0.001 milliseconds (microseconds).
-- **How it works:** Redis keeps pre-assembled timelines of recent post IDs and popular user profiles directly inside blazing-fast RAM. When you open your feed, Redis gives you the list of post IDs in the blink of an eye.
-- **Analogy:** A sticky note stuck right on the cashier's computer with today's 5 daily specials, so they don't have to walk back to the manager's office to check every time a customer asks.
+- **How it works:** Redis keeps pre-assembled timelines of recent post IDs and popular user profiles directly inside blazing-fast RAM. When opening the feed, Redis gives the list of post IDs in the blink of an eye.
+- **Analogy:** A sticky note stuck right on the cashier's computer with today's 5 daily specials, avoiding walking back to the manager's office to check every time.
 
 ### 6. Primary Database (PostgreSQL / MySQL - Master)
-- **What problem it solves:** You need one single official record book for important permanent data so nothing is lost or corrupted.
+- **What problem it solves:** A single official record book is needed for important permanent data so nothing is lost or corrupted.
 - **How it works:** The Primary database handles all **Writes**—new user registrations, new followers, and new photo metadata entries. Because only one server writes to the master ledger, there are never conflicting records.
 - **Analogy:** The Chief Accountant with the master ledger who is the only person permitted to record official contracts.
 
 ### 7. Database Read Replica (PostgreSQL / MySQL - Replicas)
-- **What problem it solves:** If 3,000 people are trying to read from the master bookkeeper every second, the bookkeeper gets overwhelmed and can't write down new records.
+- **What problem it solves:** If 3,000 people try to read from the master bookkeeper every second, the bookkeeper gets overwhelmed and cannot record new data.
 - **How it works:** Whenever the Primary database records a new post, it instantly sends a copy to several Read Replicas. All feed queries and profile searches are directed to these replicas, leaving the Primary free to handle new uploads.
 - **Analogy:** Photocopied copies of today's newspaper handed out to thousands of readers in the library reading room. Everyone reads freely without bothering the editor writing tomorrow's edition.
 
@@ -219,12 +219,12 @@ Here is a breakdown of all 9 core pieces of the SnapShare system, explained with
 ### 9. Message Queue (RabbitMQ, Apache Kafka, AWS SQS)
 - **What problem it solves:** Image resizing is slow and takes heavy computer processor power. If 1,000 users upload photos simultaneously, the app servers would freeze if they tried to resize all photos on the spot.
 - **How it works:** Instead of resizing immediately, the app server creates a small task ticket: *"Please make a 50 KB thumbnail for Photo #10482"* and drops it into the Message Queue. The user immediately receives a message: *"Upload successful!"*
-- **Analogy:** The order ticket carousel in a restaurant kitchen where orders are clipped on a wheel so chefs can cook them one by one without the waiter having to stand in the kitchen waiting.
+- **Analogy:** The order ticket carousel in a restaurant kitchen where orders are clipped on a wheel so chefs can cook them one by one without the waiter having to stand waiting in the kitchen.
 
 ### 10. Thumbnail Worker (Background Worker Fleet)
-- **What problem it solves:** The dedicated workers that do the heavy lifting of image processing away from the main website.
+- **What problem it solves:** Dedicated workers that do the heavy lifting of image processing away from the main website.
 - **How it works:** Background worker programs continuously watch the Message Queue. When a ticket arrives, a worker grabs the original $2\text{ MB}$ photo from Object Storage, shrinks it to a crisp $50\text{ KB}$ thumbnail, saves the thumbnail back to Object Storage, and updates the database.
-- **Analogy:** The dedicated kitchen prep chef whose only job is to chop vegetables and prepare sides as tickets arrive on the wheel.
+- **Analogy:** A dedicated kitchen prep chef whose only job is to chop vegetables and prepare sides as tickets arrive on the wheel.
 
 ---
 
@@ -322,7 +322,7 @@ Here is what happens behind the scenes from the moment a user taps **"Share Phot
 3. **Step 3: Handing Sarah a "VIP Delivery Pass" (Presigned URL)**  
    Instead of taking the heavy $2\text{ MB}$ file itself, the App Server creates a secure, temporary key (an Amazon S3 Presigned URL) that says: *"Sarah is allowed to upload exactly one file to folder `photos/photo_10482.jpg` within the next 5 minutes."* The server gives this URL to Sarah's phone.
 4. **Step 4: Direct Delivery to the Warehouse**  
-   Sarah's phone uploads the $2\text{ MB}$ photo directly to **Object Storage**. The photo never touches our app servers, keeping our network lines free and fast!
+   Sarah's phone uploads the $2\text{ MB}$ photo directly to **Object Storage**. The photo never touches application servers, keeping network lines free and fast!
 5. **Step 5: Confirmation Call**  
    Once Object Storage confirms receipt, the phone sends a tiny ping to the App Server: *"Hey, the photo is safely in the warehouse."*
 6. **Step 6: Dropping the Task in the Queue**  
@@ -340,25 +340,25 @@ Here is what happens behind the scenes from the moment a user taps **"Share Phot
 
 ## 9. Key Engineering Trade-Offs Explained
 
-In software engineering, there are no perfect solutions—only trade-offs. Here are the 4 big decisions we made for SnapShare:
+In software engineering, there are no perfect solutions—only trade-offs. Here are the 4 big decisions made in this design:
 
 ---
 
 ### Trade-Off 1: How to Build the Feed? (Push vs. Pull vs. Hybrid)
 
-How should a user's feed be built when they follow 500 different people?
+How should a user's feed be built when following 500 different people?
 
 - **Option A: The "Push" Model (Fan-out-on-Write)**
   - *How it works:* When Alice posts a photo, the server immediately pushes a copy of that photo ID into the feed inbox of all 200 of her followers.
   - *Advantage:* When Alice's followers open the app, their feed is already waiting in Redis. It opens in 10 milliseconds!
-  - *The Problem (The Celebrity Problem):* What if Cristiano Ronaldo posts? He has 600 Million followers! If we use the Push model, one single photo upload would force our servers to make 600,000,000 database writes at once, instantly crashing the system.
+  - *The Problem (The Celebrity Problem):* What if Cristiano Ronaldo posts? He has 600 Million followers! If the Push model is used, one single photo upload would force servers to make 600,000,000 database writes at once, instantly crashing the system.
 - **Option B: The "Pull" Model (Fan-out-on-Read)**
-  - *How it works:* When Alice posts, we just save it to her profile. We do nothing else. When Bob opens the app, the server searches for all 500 people Bob follows, finds their latest posts, and sorts them by date.
+  - *How it works:* When Alice posts, it is saved to her profile and nothing else is done. When Bob opens the app, the server searches for all 500 people Bob follows, finds their latest posts, and sorts them by date.
   - *Advantage:* Uploading is dirt cheap and instant, even for celebrities.
   - *The Problem:* Scrolling is slow. Every time someone opens the app, the server has to do expensive, heavy database searches.
-- **Our SnapShare Solution: The Smart Hybrid Model!**
-  - For **regular users** (under 25,000 followers), we use **Push**. Their feeds are precomputed and instant.
-  - For **celebrities** (over 25,000 followers), we use **Pull**. We don't push their posts to millions of inboxes. Instead, when a fan opens their feed, we pull the celebrity's latest post and blend it with their pre-made feed on the fly. Best of both worlds!
+- **The SnapShare Solution: The Smart Hybrid Model!**
+  - For **regular users** (under 25,000 followers), use **Push**. Feeds are precomputed and instant.
+  - For **celebrities** (over 25,000 followers), use **Pull**. Celebrity posts are not pushed to millions of inboxes. Instead, when a fan opens their feed, the system pulls the celebrity's latest post and blends it with their pre-made feed on the fly. Best of both worlds!
 
 ---
 
@@ -366,19 +366,19 @@ How should a user's feed be built when they follow 500 different people?
 
 - **Synchronous (Make them wait):** The app server resizes the photo before replying to the user.
   - *Pros:* Simple code; thumbnail is ready immediately.
-  - *Cons:* The user has to stare at a spinning wheel for 3 seconds. Worse, if 10,000 people upload at the same time, the server CPUs run at 100% and the entire app crashes.
-- **Asynchronous (Use Queue & Worker - Our Choice):** The app server takes the upload, hands the job to a queue, and finishes. Dedicated worker computers process the queue.
+  - *Cons:* The user stares at a spinning wheel for 3 seconds. Worse, if 10,000 people upload simultaneously, server CPUs run at 100% and the entire app crashes.
+- **Asynchronous (Use Queue & Worker - The Selected Choice):** The app server takes the upload, hands the job to a queue, and finishes. Dedicated worker computers process the queue.
   - *Pros:* Sub-second upload times for users. If traffic spikes, jobs just wait safely in the queue without crashing the site.
-  - *Cons:* Eventual consistency—there is a 1-to-2 second window where the photo is uploaded but the thumbnail is still being created (we show a clean skeleton loading placeholder during this brief time).
+  - *Cons:* Eventual consistency—there is a 1-to-2 second window where the photo is uploaded but the thumbnail is still being created (handled via clean skeleton loading placeholders).
 
 ---
 
 ### Trade-Off 3: Upload Routing (Direct-to-S3 vs. Through App Servers)
 
 - **Uploading Through App Servers:** The user's phone sends the $2\text{ MB}$ photo to the app server, and the app server forwards it to S3.
-  - *The Danger:* At peak times, with 58 uploads per second, our app servers would have to ingest and pass along over **$116\text{ MB}$ of data every second** ($928\text{ Mbps}$). The app servers' network cards would max out, blocking normal user logins and feed requests.
-- **Direct-to-S3 with Presigned URLs (Our Choice):** The user's phone uploads directly to the cloud warehouse.
-  - *The Benefit:* Our app servers only handle tiny JSON messages ($< 1\text{ KB}$), saving massive amounts of server bandwidth and hosting costs.
+  - *The Danger:* At peak times, with 58 uploads per second, app servers must ingest and forward over **$116\text{ MB}$ of data every second** ($928\text{ Mbps}$). App server network cards max out, blocking normal user logins and feed requests.
+- **Direct-to-S3 with Presigned URLs (The Selected Choice):** The user's phone uploads directly to the cloud warehouse.
+  - *The Benefit:* App servers only handle tiny JSON messages ($< 1\text{ KB}$), saving massive amounts of server bandwidth and hosting costs.
 
 ---
 
@@ -386,16 +386,16 @@ How should a user's feed be built when they follow 500 different people?
 
 - **One Big Central Database:** Everyone reads and writes to the exact same computer.
   - *Pros:* 100% immediate consistency.
-  - *Cons:* It cannot handle 2,894 feed views per second during rush hour. You will hit a hard hardware limit.
-- **Read Replicas (Our Choice):** We have one Primary database for writes, and multiple Read Replicas for reads.
-  - *The Trade-Off (Replication Lag):* It takes about $50$ to $200$ milliseconds for a new write on the Primary to copy over to the Read Replicas. If a user uploads a photo and immediately pulls down to refresh their profile within 0.1 seconds, they might not see their photo for a split second.
-  - *Our Fix (Read-Your-Own-Writes):* When a user views their *own* profile, we route their request to the Primary database for the first 5 seconds, while all general feed browsing queries go to the Read Replicas.
+  - *Cons:* It cannot handle 2,894 feed views per second during rush hour. A hard hardware limit is reached.
+- **Read Replicas (The Selected Choice):** One Primary database for writes, and multiple Read Replicas for reads.
+  - *The Trade-Off (Replication Lag):* It takes about $50$ to $200$ milliseconds for a new write on the Primary to copy over to Read Replicas. If a user uploads a photo and immediately pulls down to refresh their profile within 0.1 seconds, they might not see their photo for a split second.
+  - *The Fix (Read-Your-Own-Writes):* When a user views their *own* profile, route their request to the Primary database for the first 5 seconds, while all general feed browsing queries go to the Read Replicas.
 
 ---
 
 ## 10. Files in this Directory & How to Review
 
-Inside the `day7/` folder, you will find:
+Inside the `day7/` folder:
 
 1. **[`README.md`](./README.md)** *(This file)*: The detailed, comprehensive, layman-friendly guide breaking down every calculation, concept, and real-world analogy.
 2. **[`photo-app-scaling.md`](./photo-app-scaling.md)**: The formal engineering scaling plan and system architecture specification containing all mathematical proofs, ASCII architecture diagrams, one-sentence component definitions, upload sequences, and trade-off tables.

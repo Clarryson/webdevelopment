@@ -1,12 +1,12 @@
-# Web Foundations & Software Engineering Bootcamp
+# My Web Development Journey & Software Engineering Portfolio
 
-A complete, beginner-friendly learning roadmap and code repository covering web development from foundational HTML to petabyte-scale cloud architecture.
+Welcome to **my web development journey**! This repository documents my step-by-step progress from foundational HTML to advanced petabyte-scale cloud architecture. Every project, experiment, and concept here reflects my hands-on practice, code, and architectural thinking.
 
 ---
 
-## 🗺️ 7-Day Curriculum Roadmap
+## 🗺️ My 7-Day Learning Roadmap
 
-Each directory contains working code, detailed specifications, and in-depth beginner guides written in clear layman's terms with real-world analogies.
+Each folder contains my working code, detailed specifications, and in-depth guides written in clear layman's terms with real-world analogies.
 
 | Day | Topic | Key Skills & Technologies | Directory |
 | :---: | :--- | :--- | :---: |
@@ -20,11 +20,15 @@ Each directory contains working code, detailed specifications, and in-depth begi
 
 ---
 
-## 🚀 How to Explore this Repository
+## ⚡ How to View Any Page Locally (Using Live Server)
 
-1. **Start from Day 1** and progress sequentially through **Day 7**.
-2. Each folder contains a detailed `README.md` breaking down:
-   - What the code does.
-   - Why it works using everyday analogies (restaurants, filing cabinets, gift boxes, and doorbells).
-   - How to run and test it on your own machine.
-3. All code is clean, vanilla, well-commented, and free of unnecessary complex jargon.
+I use the **VS Code Live Server Extension** to view and test all my HTML and CSS pages:
+
+1. In VS Code, open any day's directory (for example, `day1/index.html` or `day4/index.html`).
+2. Right-click anywhere in the editor window and select **"Open with Live Server"**.
+   - *Alternatively:* Click the **"Go Live"** button located in the bottom blue status bar of VS Code.
+3. The page will immediately open in your default browser at:
+   ```
+   http://127.0.0.1:5500/
+   ```
+4. Whenever I edit any HTML, CSS, or JavaScript file and hit save, **Live Server automatically reloads the browser tab** so I see the updates instantly!

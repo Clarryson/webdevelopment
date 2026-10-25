@@ -1,6 +1,6 @@
 # Day 6: Relational Databases, SQL & Database Design
 
-Welcome to **Day 6** of our Web Development journey! Today, we leave the front-end browser behind and dive into the back-end heart of software engineering: **Databases**, **SQL (Structured Query Language)**, and **Relational Database Design**.
+Welcome to **Day 6** of **my web development journey**! Today, I leave the front-end browser behind and dive into the back-end heart of software engineering: **Databases**, **SQL (Structured Query Language)**, and **Relational Database Design**.
 
 ---
 
@@ -13,7 +13,7 @@ Almost every app you use (Instagram, Netflix, Spotify, Amazon) needs to remember
 > - Each table has **Columns** (attributes like `name`, `email`, `course_code`).
 > - Each table has **Rows** (individual records, like one specific student or one specific course).
 > 
-> Unlike a simple Excel file on your desktop, a relational database:
+> Unlike a simple Excel file on a desktop, a relational database:
 > - Can hold billions of rows without slowing down.
 > - Enforces strict rules (like never allowing two students to share the same email).
 > - Allows thousands of people to read and write at the exact same split-second without corrupting the file.
@@ -24,7 +24,7 @@ Almost every app you use (Instagram, Netflix, Spotify, Amazon) needs to remember
 
 **SQL (Structured Query Language)** is the international standard language used to talk to relational databases (like PostgreSQL, MySQL, SQLite, and Microsoft SQL Server).
 
-With SQL, you write simple, English-like commands to:
+With SQL, simple English-like commands are written to:
 - **`CREATE TABLE`**: Set up a new spreadsheet.
 - **`INSERT INTO`**: Add new rows.
 - **`SELECT ... FROM`**: Search and read rows.
@@ -38,12 +38,12 @@ With SQL, you write simple, English-like commands to:
 ### 3.1 Primary Keys (The Student ID Card)
 Every row in a table must have a unique identifier called a **Primary Key** (`id`).
 - Just like every citizen has a unique Social Security Number or National ID, no two students can ever have the same `id`.
-- In SQLite, we use `id INTEGER PRIMARY KEY AUTOINCREMENT`, meaning the database automatically assigns numbers `1, 2, 3, 4...` for us.
+- In SQLite, `id INTEGER PRIMARY KEY AUTOINCREMENT` is used, meaning the database automatically assigns numbers `1, 2, 3, 4...`.
 
 ### 3.2 Foreign Keys (The Reference Badge)
 A **Foreign Key** is a column in one table that points directly to the Primary Key of another table.
-- In our `enrolments` table, `student_id` is a foreign key pointing to `students(id)`.
-- It guarantees referential integrity: you cannot enroll a student who does not exist in the students table!
+- In the `enrolments` table, `student_id` is a foreign key pointing to `students(id)`.
+- It guarantees referential integrity: a student who does not exist in the students table cannot be enrolled!
 
 ### 3.3 The 3 Types of Relationships
 1. **One-to-One (1:1):** One person has one passport; one passport belongs to one person.
@@ -54,7 +54,7 @@ A **Foreign Key** is a column in one table that points directly to the Primary K
 
 ## 4. Why Do We Need a Join Table (`enrolments`)?
 
-When two entities have a **Many-to-Many relationship** (Students and Courses), how do we store who is taking what?
+When two entities have a **Many-to-Many relationship** (Students and Courses), how is the enrollment data stored?
 
 ### The Bad Idea: Comma-Separated Lists
 Imagine putting this inside the `students` table:
@@ -63,12 +63,12 @@ Imagine putting this inside the `students` table:
 | 1 | Alice | CS101, MATH201, BIO100 |
 
 Why is this terrible?
-- You cannot index it.
+- It cannot be indexed.
 - Searching for all students taking "CS101" forces the database to read every single letter of every single student.
-- What if Alice gets an 'A' in CS101 and a 'C' in MATH201? Where do you store her grades?
+- What if Alice gets an 'A' in CS101 and a 'C' in MATH201? Where are her individual grades stored?
 
 ### The Professional Solution: The Join (Junction) Table
-We create a third table called `enrolments` that links one student to one course, and holds attributes specific to that enrollment event (like their `grade`!):
+I create a third table called `enrolments` that links one student to one course, and holds attributes specific to that enrollment event (like their `grade`!):
 
 ```
 +---------------+              +--------------------+              +---------------+
@@ -80,13 +80,13 @@ We create a third table called `enrolments` that links one student to one course
 +---------------+              +--------------------+              +---------------+
 ```
 
-The composite rule `UNIQUE (student_id, course_id)` ensures that Alice cannot accidentally enroll in CS101 twice!
+The composite rule `UNIQUE (student_id, course_id)` ensures that a student cannot accidentally enroll in the same course twice!
 
 ---
 
 ## 5. SQL Queries Explained Step-by-Step
 
-All queries live inside [`school.sql`](./school.sql). Here is how they work:
+All my queries live inside [`school.sql`](./school.sql). Here is how they work:
 
 ### Query 1: Find all courses for one student by name
 ```sql
@@ -131,7 +131,7 @@ FROM students s
 LEFT JOIN enrolments e ON s.id = e.student_id
 WHERE e.id IS NULL;
 ```
-- **How it works:** Pairs every student with their enrollments. If a student has never enrolled in any course, the right side (`e.id`) is empty (`NULL`). Filtering for `WHERE e.id IS NULL` gives us the exact list of unenrolled students!
+- **How it works:** Pairs every student with their enrollments. If a student has never enrolled in any course, the right side (`e.id`) is empty (`NULL`). Filtering for `WHERE e.id IS NULL` gives the exact list of unenrolled students!
 
 ---
 
@@ -159,7 +159,7 @@ In relational databases, adding an index on foreign keys (like `idx_enrolments_s
 ## 7. How to Run & Verify the SQL Code
 
 ### Option 1: Run with Python (Instant & Local)
-Run this one-liner in your terminal to test the SQL script in memory:
+Run this one-liner in the terminal to test the SQL script in memory:
 ```bash
 python3 -c "
 import sqlite3
@@ -175,4 +175,4 @@ print('✅ All SQL executed cleanly with zero errors!')
 1. Open [sqliteonline.com](https://sqliteonline.com).
 2. Copy the entire contents of [`school.sql`](./school.sql).
 3. Paste into the editor and click **Run**.
-4. You will see all tables, rows, and query outputs right on your screen!
+4. All tables, rows, and query outputs will display right on the screen!

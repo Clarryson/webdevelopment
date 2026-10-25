@@ -1,6 +1,6 @@
 # Day 4: Interactive Web Apps — DOM Manipulation & LocalStorage
 
-Welcome to **Day 4** of our Web Development journey! Today, we combine HTML, CSS, and JavaScript to build our first **fully interactive web application**: a live note scratchpad with real-time character counters, automatic draft saving, and a dark/light mode toggle.
+Welcome to **Day 4** of **my web development journey**! Today, I combine HTML, CSS, and JavaScript to build my first **fully interactive web application**: a live note scratchpad with real-time character counters, automatic draft saving, and a dark/light mode toggle.
 
 ---
 
@@ -28,7 +28,7 @@ To control something on the page, JavaScript first has to "find" it:
 ```javascript
 const noteText = document.querySelector("#note-text");
 ```
-`#note-text` tells JavaScript: *"Find the HTML element whose `id` is `note-text`."* Once found, we store it in a variable so we can read its value or change it later.
+`#note-text` tells JavaScript: *"Find the HTML element whose `id` is `note-text`."* Once found, it is stored in a variable so its value can be read or changed.
 
 ---
 
@@ -41,34 +41,34 @@ clearBtn.addEventListener("click", clearAll);
 
 > **The Doorbell Analogy:**  
 > A doorbell sits quietly on the wall doing nothing until someone presses it. When pressed, it immediately rings the chime.  
-> Here, `clearBtn` listens for the `"click"` event. When the user clicks the button, it instantly rings our `clearAll()` function!
+> Here, `clearBtn` listens for the `"click"` event. When the button is clicked, it instantly triggers the `clearAll()` function!
 
-In our app, we listen for 3 kinds of events:
-1. `"input"`: Fires on the textarea every single time a user types, deletes, or pastes a letter.
+In my app, I listen for 3 kinds of events:
+1. `"input"`: Fires on the textarea every single time a letter is typed, deleted, or pasted.
 2. `"click"`: Fires when a button is clicked.
 3. `"keydown"`: Fires when a keyboard key is pressed down (used to detect the `Escape` key).
 
 ---
 
 ### 2.3 `localStorage` (The Pocket Notebook Analogy)
-Normally, when you refresh a browser page, everything typed into a form disappears. **`localStorage`** gives our web app a small, private pocket notebook saved inside the user's browser:
+Normally, when a browser page is refreshed, everything typed into a form disappears. **`localStorage`** gives my web app a small, private pocket notebook saved inside the user's browser:
 - `localStorage.setItem("note-draft", text)`: Writes the note into the notebook.
 - `localStorage.getItem("note-draft")`: Reads the saved note back out of the notebook.
 - `localStorage.removeItem("note-draft")`: Erases the note from the notebook.
 
-Even if the user closes their browser or restarts their computer, the draft is still waiting for them when they return!
+Even if the browser is closed or the computer restarted, the draft is still waiting when reopening the app!
 
 ---
 
 ### 2.4 CSS Variables & Dark Mode (The Master Light Switch)
-In `style.css`, we defined color tokens on `:root`:
+In `style.css`, color tokens are defined on `:root`:
 ```css
 :root {
   --bg-color: #f8fafc;
   --text-color: #0f172a;
 }
 ```
-When the user switches to Dark Mode, JavaScript adds the `.dark` class to the `<body>` element. Our CSS simply reassigns the variables:
+When switching to Dark Mode, JavaScript adds the `.dark` class to the `<body>` element. My CSS simply reassigns the variables:
 ```css
 body.dark {
   --bg-color: #0f172a;
@@ -94,7 +94,7 @@ Because all cards, buttons, and backgrounds reference these variables, the **ent
 ---
 
 ### 3.2 Auto-Saving Drafts (`saveDraft`)
-Whenever the user types a letter, the `input` event triggers `saveDraft()`. It immediately writes the updated text to `localStorage`. The user never has to worry about clicking a "Save" button!
+Whenever a letter is typed, the `input` event triggers `saveDraft()`. It immediately writes the updated text to `localStorage`. The user never has to worry about clicking a "Save" button!
 
 ---
 
@@ -114,12 +114,16 @@ When the webpage first boots up:
 
 ---
 
-## 4. How to Run & Try the App
+## 4. How to View in Browser (Using Live Server)
 
-1. Open `day4/index.html` in your web browser.
-2. Type a note into the scratchpad. Notice the character counter and word counter update with every keystroke.
-3. Type more than 180 characters: watch the counter turn orange!
-4. Type more than 200 characters: watch the counter turn red!
-5. Refresh the page: notice your note is still there!
-6. Click the **Dark Mode** button in the top right to toggle dark mode. Refresh again: notice your theme choice was remembered!
-7. Press the `Escape` key inside the text box: watch the scratchpad clear instantly.
+I use the **VS Code Live Server Extension** to view and interact with my app:
+
+1. In VS Code, open `day4/index.html`.
+2. Right-click anywhere in `day4/index.html` and click **"Open with Live Server"** (or click the **"Go Live"** button on the bottom status bar).
+3. The app opens immediately in the browser at `http://127.0.0.1:5500/day4/index.html`.
+4. Type a note into the scratchpad. Notice the character counter and word counter update with every keystroke.
+5. Type more than 180 characters: watch the counter turn orange!
+6. Type more than 200 characters: watch the counter turn red!
+7. Refresh the page: notice the note is still there!
+8. Click the **Dark Mode** button in the top right to toggle dark mode. Refresh again: notice the theme choice was remembered!
+9. Press the `Escape` key inside the text box: watch the scratchpad clear instantly.

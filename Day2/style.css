@@ -1,0 +1,168 @@
+/* ==========================================================================
+   Day 2: Beginner-Friendly CSS Stylesheet
+   This file teaches the core concepts of CSS: colors, typography, margins,
+   padding, borders, and simple card layouts.
+   ========================================================================== */
+
+/* 1. Global Page Styles */
+body {
+  font-family: Arial, sans-serif; /* Clean, easily readable font */
+  line-height: 1.6;               /* Extra space between lines of text */
+  margin: 0;                      /* Remove default browser margin around edges */
+  padding: 0;
+  background-color: #f4f6f9;      /* Soft light-gray background */
+  color: #333333;                 /* Dark gray text for easy reading */
+}
+
+/* 2. Header and Navigation Bar */
+header {
+  background-color: #1e293b;      /* Dark slate navy banner */
+  padding: 1rem 2rem;
+}
+
+nav a {
+  color: #ffffff;                 /* White link text */
+  text-decoration: none;          /* Remove the default blue underline */
+  margin-right: 1.5rem;           /* Space between links */
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover effect: changes background when mouse moves over the link */
+nav a:hover {
+  background-color: #334155;
+}
+
+/* Active page link highlight */
+nav a.active {
+  background-color: #0284c7;      /* Bright blue badge for the active page */
+}
+
+/* 3. Main Content Container */
+main {
+  max-width: 800px;               /* Keeps text from stretching too wide on big monitors */
+  margin: 2rem auto;              /* Centers the container horizontally on the screen */
+  padding: 0 1.5rem;
+}
+
+h1 {
+  color: #0f172a;
+  border-bottom: 2px solid #0284c7; /* Adds a stylish blue accent line below the title */
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  color: #1e293b;
+  margin-top: 1.5rem;
+}
+
+/* 4. Card Containers (Grouping sections neatly) */
+.card {
+  background-color: #ffffff;      /* White card background */
+  border: 1px solid #e2e8f0;      /* Subtle border */
+  border-radius: 8px;             /* Rounded corners */
+  padding: 1.5rem;                /* Inner breathing room */
+  margin-bottom: 1.5rem;          /* Space between cards */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Gentle drop shadow */
+}
+
+/* 5. Lists */
+.features-list, .shortcuts-list {
+  padding-left: 1.5rem;
+}
+
+.features-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Code tags for keyboard shortcuts */
+code {
+  background-color: #e2e8f0;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+/* 6. Data Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;       /* Merges double borders into single clean borders */
+  margin-top: 1rem;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: 1px solid #cbd5e1;
+}
+
+.data-table th {
+  background-color: #f1f5f9;      /* Light gray background for headers */
+  color: #0f172a;
+  font-weight: bold;
+}
+
+/* Zebra striping: makes alternating rows easy to read */
+.data-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* 7. Forms and Buttons */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;                 /* Puts the label on its own line above the input */
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+input[type="email"],
+textarea {
+  width: 100%;
+  box-sizing: border-box;         /* Includes padding in the width calculation */
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+/* Highlight border when typing in an input */
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
+}
+
+button[type="submit"], #_button {
+  background-color: #0284c7;      /* Bright blue button */
+  color: #ffffff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;                /* Changes cursor to a pointing hand */
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover, #_button:hover {
+  background-color: #0369a1;      /* Darker blue on hover */
+}
+
+/* 8. Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #e2e8f0;
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}

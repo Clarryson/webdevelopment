@@ -1,64 +1,87 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <title>
-        Web foundations
-    </title>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" />
-</head>
-
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Foundations - About QuickNotes</title>
+  </head>
+  <body>
+    <!-- Header with clean navigation links -->
     <header>
-        <nav href="index.html">Home</nav>
-        <nav href="about.html"> About </nav>
+      <nav>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a>
+      </nav>
     </header>
+
+    <!-- Main content area -->
     <main>
-        <h2> About QuickNotes<h2>
-            <p> Hello this is our first progress in software engineering </p>
-            <section>
-                <ul>
-                    <li> Short notes</i>
-                    <li>Long notes</li>
-                </ul>
+      <h1>About QuickNotes</h1>
+      <p>Hello! This is our first milestone in web development and software engineering.</p>
 
-            </section>
-            <section>
-                <li> "CTR+C"</li>
-                <li>"Alt+C"</li>
-                <table>
-                     <tr>   
-                        <th>Name </th>
-                        <th>Age</th>
-                        <th>Year></th>
+      <!-- Section 1: Note Types List -->
+      <section>
+        <h2>Note Categories</h2>
+        <ul>
+          <li>Short notes</li>
+          <li>Long notes</li>
+        </ul>
+      </section>
 
-                     </tr>
-                     <tr> 
-                        <td>Clarryson</td>
-                          <td>40</td>
-                            <td>20005</td>
-                     </tr>
-                     <tr> 
-                        <td>Mark</td>
-                          <td>20</td>
-                            <td>20005</td>
-                        <tr>
+      <!-- Section 2: Keyboard Shortcuts & Team Table -->
+      <section>
+        <h2>Useful Shortcuts</h2>
+        <ul>
+          <li>Ctrl + C (Copy)</li>
+          <li>Alt + C (Quick Capture)</li>
+        </ul>
 
+        <h2>Team Members</h2>
+        <table border="1" cellpadding="6" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Clarryson</td>
+              <td>40</td>
+              <td>2025</td>
+            </tr>
+            <tr>
+              <td>Mark</td>
+              <td>20</td>
+              <td>2025</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-                     </table>
-            </section>
-            <section> 
-             <label for="feedback_orm">Feedback form</label>
-             <label for="email" id="email-input" type="email">Email</label>
-             <label for="textarea" type="textarea">Text area</label>
-             <button type="Submit">Submit</button>
-            </section>
+      <!-- Section 3: Contact & Feedback Form -->
+      <section>
+        <h2>Feedback Form</h2>
+        <form action="#" method="post">
+          <p>
+            <label for="email-input">Your Email:</label><br />
+            <input type="email" id="email-input" name="email" placeholder="you@example.com" required />
+          </p>
+
+          <p>
+            <label for="feedback-text">Message / Description:</label><br />
+            <textarea id="feedback-text" name="message" rows="4" cols="40" placeholder="Type your feedback here..." required></textarea>
+          </p>
+
+          <button type="submit">Submit Feedback</button>
+        </form>
+      </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p> &copy l with Clarryson with love</p>
+      <p>&copy; 2026 Clarryson. Made with love and learning.</p>
     </footer>
-</body>
-
+  </body>
 </html>

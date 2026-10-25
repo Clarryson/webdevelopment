@@ -1,79 +1,91 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <title>
-        Web foundations
-    </title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
-    <body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Foundations - Day 2 About</title>
+    <!-- Linking our external CSS stylesheet -->
+    <link rel="stylesheet" href="style.css" />
   </head>
-
-
+  <body>
+    <!-- Header with styled navigation bar -->
     <header>
-        <nav> 
+      <nav>
         <a href="index.html">Home</a>
-        <a href="about.html"> About</a> 
-
-        </nav>
+        <a href="about.html" class="active">About</a>
+      </nav>
     </header>
+
+    <!-- Main page content -->
     <main>
-        <h2> About QuickNotes<h2>
-            <p> Hello this is our first progress in software engineering </p>
-            <section>
-                <ul>
-                    <li class="features"> Short notes</i>
-                    <li class="features">Long notes</li>
-                </ul>
+      <h1>About QuickNotes</h1>
+      <p class="intro">
+        Hello! This is our progress in software engineering, now enhanced with custom CSS styling.
+      </p>
 
-            </section>
-            <section>
+      <!-- Section 1: Note Features -->
+      <section class="card">
+        <h2>Note Features</h2>
+        <ul class="features-list">
+          <li class="features">Short notes for quick thoughts</li>
+          <li class="features">Long notes for deep ideas</li>
+        </ul>
+      </section>
 
+      <!-- Section 2: Shortcuts & Styled Table -->
+      <section class="card">
+        <h2>Helpful Shortcuts</h2>
+        <ul class="shortcuts-list">
+          <li><code>Ctrl + C</code>: Copy selected text</li>
+          <li><code>Alt + C</code>: Quick note capture</li>
+        </ul>
 
+        <h2>Team Members</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Clarryson</td>
+              <td>40</td>
+              <td>2025</td>
+            </tr>
+            <tr>
+              <td>Mark</td>
+              <td>20</td>
+              <td>2025</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
+      <!-- Section 3: Feedback Form -->
+      <section class="card">
+        <h2>Feedback Form</h2>
+        <form class="styled-form" action="#" method="post">
+          <div class="form-group">
+            <label for="email-input">Email Address:</label>
+            <input type="email" id="email-input" name="email" placeholder="name@example.com" required />
+          </div>
 
+          <div class="form-group">
+            <label for="textarea">Description / Message:</label>
+            <textarea id="textarea" name="description" rows="4" placeholder="Share your thoughts with us..." required></textarea>
+          </div>
 
-
-
-                <li> "CTR+C"</li>
-                <li>"Alt+C"</li>
-                <table>
-                     <tr>   
-                        <th>Name </th>
-                        <th>Age</th>
-                        <th>Year</th>
-
-                     </tr>
-                     <tr> 
-                        <td>Clarryson</td>
-                          <td>40</td>
-                            <td>2005</td>
-                     </tr>
-                     <tr> 
-                        <td>Mark</td>
-                          <td>20</td>
-                            <td>20005</td>
-                     </tr>
-
-
-                     </table>
-            </section>
-            <section> 
-             <p> feedback form </p>
-             <label for="email"  >Email</label>
-             <input type="email" required,id="email-input"/>
-             <p> description:</p>
-             <label for="textarea" >Description</label>
-             <input type="textarea" id="textarea" required/>
-             <button  id="_button">Submit</button>
-            </section>
+          <button type="submit" id="_button">Submit Feedback</button>
+        </form>
+      </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p> &copy l with Clarryson with love</p>
+      <p>&copy; 2026 Clarryson. Built with love and learning.</p>
     </footer>
-</body>
-
+  </body>
 </html>

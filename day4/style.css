@@ -1,0 +1,298 @@
+/* 
+  Day 4 Stylesheet
+  All theme colours defined as CSS variables on :root.
+  body.dark redefines the variables for dark mode.
+*/
+
+:root {
+  --bg-color: #f1f5f9;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --card-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --header-gradient: linear-gradient(135deg, #0284c7 0%, #6366f1 100%);
+  
+  --textarea-bg: #ffffff;
+  --textarea-text: #0f172a;
+  --textarea-border: #cbd5e1;
+  --textarea-focus-border: #3b82f6;
+  --textarea-focus-ring: rgba(59, 130, 246, 0.2);
+  
+  --btn-theme-bg: #f8fafc;
+  --btn-theme-text: #334155;
+  --btn-theme-border: #cbd5e1;
+  --btn-theme-hover-bg: #e2e8f0;
+  
+  --btn-clear-bg: #fee2e2;
+  --btn-clear-text: #b91c1c;
+  --btn-clear-border: #fca5a5;
+  --btn-clear-hover-bg: #fecaca;
+  
+  --counter-text: #64748b;
+  --warning-color: #ea580c; /* orange text */
+  --over-color: #dc2626;    /* red, bold text */
+  
+  --footer-text: #94a3b8;
+}
+
+body.dark {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --header-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  
+  --textarea-bg: #0f172a;
+  --textarea-text: #f8fafc;
+  --textarea-border: #334155;
+  --textarea-focus-border: #38bdf8;
+  --textarea-focus-ring: rgba(56, 189, 248, 0.25);
+  
+  --btn-theme-bg: #334155;
+  --btn-theme-text: #f8fafc;
+  --btn-theme-border: #475569;
+  --btn-theme-hover-bg: #475569;
+  
+  --btn-clear-bg: rgba(239, 68, 68, 0.15);
+  --btn-clear-text: #f87171;
+  --btn-clear-border: rgba(239, 68, 68, 0.3);
+  --btn-clear-hover-bg: rgba(239, 68, 68, 0.25);
+  
+  --counter-text: #94a3b8;
+  --warning-color: #fb923c; /* orange text in dark theme */
+  --over-color: #f87171;    /* red, bold text in dark theme */
+  
+  --footer-text: #64748b;
+}
+
+/* Global Box Sizing Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  line-height: 1.5;
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.app-header {
+  margin-bottom: 2rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-title-group h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  background: var(--header-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-title-group .tagline {
+  font-size: 0.925rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  background-color: var(--btn-theme-bg);
+  color: var(--btn-theme-text);
+  border: 1px solid var(--btn-theme-border);
+  padding: 0.55rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+#theme-toggle:hover {
+  background-color: var(--btn-theme-hover-bg);
+  transform: translateY(-1px);
+}
+
+#theme-toggle:active {
+  transform: translateY(0);
+}
+
+/* Main Editor Card */
+.editor-container {
+  flex: 1;
+}
+
+.editor-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+textarea#note-text {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 1rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--textarea-border);
+  background-color: var(--textarea-bg);
+  color: var(--textarea-text);
+  resize: vertical;
+  min-height: 180px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+textarea#note-text:focus {
+  border-color: var(--textarea-focus-border);
+  box-shadow: 0 0 0 3px var(--textarea-focus-ring);
+}
+
+textarea#note-text::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* Footer of Card: Counters and Clear Button */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--card-border);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.counters {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  font-size: 0.925rem;
+  color: var(--counter-text);
+  font-variant-numeric: tabular-nums;
+}
+
+#char-count,
+#word-count {
+  transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+/* Required Warning & Over Classes for Character Counter */
+.warning,
+#char-count.warning {
+  color: var(--warning-color);
+}
+
+.over,
+#char-count.over {
+  color: var(--over-color);
+  font-weight: bold;
+}
+
+/* Clear Button */
+#clear-btn {
+  background-color: var(--btn-clear-bg);
+  color: var(--btn-clear-text);
+  border: 1px solid var(--btn-clear-border);
+  padding: 0.55rem 1.15rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+#clear-btn:hover {
+  background-color: var(--btn-clear-hover-bg);
+  transform: translateY(-1px);
+}
+
+#clear-btn:active {
+  transform: translateY(0);
+}
+
+/* App Footer */
+.app-footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--footer-text);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .app-wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  #theme-toggle {
+    align-self: flex-start;
+  }
+
+  .card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  #clear-btn {
+    width: 100%;
+  }
+}

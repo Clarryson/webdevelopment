@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 4 - Note Draft &amp; Counter</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-wrapper">
+    <header class="app-header">
+      <div class="header-content">
+        <div class="header-title-group">
+          <h1>Note Scratchpad</h1>
+          <p class="tagline">Live counters, theme persistence &amp; draft auto-save</p>
+        </div>
+        <button id="theme-toggle" type="button">Dark mode</button>
+      </div>
+    </header>
+
+    <main class="editor-container">
+      <div class="editor-card">
+        <div class="field-group">
+          <label for="note-text" class="field-label">Note Content</label>
+          <textarea
+            id="note-text"
+            placeholder="Type your note here... (Press Esc to clear)"
+            rows="8"
+          ></textarea>
+        </div>
+
+        <div class="card-footer">
+          <div class="counters">
+            <p id="char-count">0 / 200 characters</p>
+            <p id="word-count">0 words</p>
+          </div>
+          <div class="controls">
+            <button id="clear-btn" type="button">Clear</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>Web Foundations Day 4 &bull; Saved locally</p>
+    </footer>
+  </div>
+</body>
+</html>

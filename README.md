@@ -4,7 +4,7 @@ Welcome to **my web development journey**! This repository documents my step-by-
 
 ---
 
-## 🗺️ My 7-Day Learning Roadmap
+## 🗺️ My 8-Day Learning Roadmap & Capstone
 
 Each folder contains my working code, detailed specifications, and in-depth guides written in clear layman's terms with real-world analogies.
 
@@ -17,6 +17,7 @@ Each folder contains my working code, detailed specifications, and in-depth guid
 | **Day 5** | **Async JavaScript, APIs & RESTful Design** | `fetch()`, `async / await`, network states (Loading, Success, Error), zero-latency client-side search, secure DOM creation, and REST API design. | [`day5/`](./day5/README.md) |
 | **Day 6** | **Relational Databases & SQL Architecture** | SQLite, tables, Primary & Foreign Keys, Many-to-Many junction tables (`enrolments`), `INNER` & `LEFT JOIN` queries, indexing, and SQL vs NoSQL. | [`day6/`](./day6/README.md) |
 | **Day 7** | **System Architecture & Cloud Scaling Plan** | High-scale capacity planning for "SnapShare" (10M users, 748 TB/yr), CDN edge caching, load balancing, Redis caching, read replicas, and async workers. | [`day7/`](./day7/README.md) |
+| **Day 8** | **Capstone System Design & Reflection** | "TicketHub" flash-sale architecture (200k users, 20k seats in 10 mins), zero double-booking concurrency control, waiting rooms, Redis locks, and course reflection. | [`day8/`](./day8/README.md) |
 
 ---
 

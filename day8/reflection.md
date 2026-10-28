@@ -1,0 +1,10 @@
+# Day 8 Engineering Reflection: Web Foundations Capstone
+
+### 1. What was the most difficult concept in the course, and how did you overcome it?
+Throughout this course, the most challenging concept was understanding database concurrency and race conditions under heavy traffic. Shifting from a single-user mental model to envisioning hundreds of thousands of simultaneous requests competing for identical database rows initially felt overwhelming. I overcame this challenge by mapping out transactions step-by-step on paper, tracing database isolation levels, and experimenting with atomic conditional updates in SQL. Writing out explicit state transitions and testing row-level locks helped me understand how constraints physically prevent anomalies like double-booking.
+
+### 2. Which part of your capstone would you improve, based on the feedback you received?
+Based on feedback received on my capstone design, the primary area I would improve is my edge-tier caching and seat-holding strategy. While my design effectively uses a virtual waiting room and Redis locks to protect PostgreSQL, the initial version relied on polling for seat availability updates, which still generated substantial read traffic. Incorporating real-time WebSocket or Server-Sent Events (SSE) channels at the edge would broadcast seat reservations to active clients instantaneously, slashing polling overhead and providing a smoother user experience. Additionally, I would implement dynamic tiered pricing algorithms that adjust seat prices based on demand velocity.
+
+### 3. What will you learn next?
+Next, I plan to dive deeper into backend infrastructure and distributed systems. Specifically, I want to learn Docker containerization and Kubernetes orchestration to automate horizontal scaling of microservices. I also want to explore distributed consensus algorithms, message queue partitioning with Apache Kafka, and GraphQL for flexible client queries. Mastering these technologies will enable me to build resilient, production-ready cloud architectures capable of effortlessly handling millions of global users.

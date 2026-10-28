@@ -621,7 +621,7 @@ Seats never transition directly from `Available` to `Sold`. Instead, they move t
 ### 5.3 Tier 2: Database Concurrency Control & Row Locking
 
 #### Mechanism A: Atomic Conditional Update (Optimistic Concurrency Control)
-Our primary holding query uses an **Atomic Conditional Update with Version Increment**. In SQL:
+My primary holding query uses an **Atomic Conditional Update with Version Increment**. In SQL:
 
 ```sql
 UPDATE seats
@@ -820,13 +820,13 @@ flowchart TD
 | **Throughput Under Normal Load** | **Extremely High**: Zero lock overhead; readers and writers never block each other. | **Moderate**: Locks incur database lock-manager overhead. |
 | **Performance Under Heavy Contention** | **High Failure Rate / High CPU on Retries**: In high contention (10 people clicking 1 seat), 9 fail immediately without waiting. | **Severe Lock Contention & Bottlenecks**: 10 transactions queue up sequentially, holding database connection threads open and risking deadlocks. |
 | **Deadlock Risk** | **Zero**: Single statement execution never deadlocks. | **High**: Locking multiple seats across concurrent transactions causes deadlocks unless ordered strictly. |
-| **TicketHub Decision & Verdict** | **Selected Hybrid Approach**: We use **Optimistic Atomic Updates** combined with **Redis pre-locking** for individual seat holds. This prevents long database lock queues during the 200,000-user sale. For multi-seat holds within a single basket, we use **Pessimistic Locking with strictly ordered IDs** within a sub-second transaction to guarantee all-or-nothing seat reservations. |
+| **TicketHub Decision & Verdict** | **Selected Hybrid Approach**: I use **Optimistic Atomic Updates** combined with **Redis pre-locking** for individual seat holds. This prevents long database lock queues during the 200,000-user sale. For multi-seat holds within a single basket, I use **Pessimistic Locking with strictly ordered IDs** within a sub-second transaction to guarantee all-or-nothing seat reservations. |
 
 ---
 
 ### Trade-Off 2: Virtual Waiting Room (Edge Queueing) vs. Raw Auto-Scaling (Elastic Oversubscription)
 
-| Dimension | Virtual Waiting Room (Our Architecture) | Raw Auto-Scaling (Elastic Oversubscription) |
+| Dimension | Virtual Waiting Room (My Architecture) | Raw Auto-Scaling (Elastic Oversubscription) |
 | :--- | :--- | :--- |
 | **User Experience (Perceived Fairness)** | **Transparent & Fair**: Users receive an exact queue position (e.g., #"1,420 in line") and estimated wait time. Eliminates chaotic page-refreshing battles. | **Frustrating & Random**: Users experience HTTP 504 Gateway Timeouts, spinning loaders, and random error pages as servers struggle to cope. |
 | **Infrastructure Cost** | **Low to Moderate**: Backend is provisioned to comfortably handle $500\text{ writes/sec}$ rather than over-provisioned for a 10-minute $30,000\text{ RPS}$ spike that goes unused the rest of the year. | **Extremely Expensive**: Requires provisioning hundreds of high-memory database instances and web clusters that take 5–10 minutes to spin up (often finishing after the sale is already over). |
@@ -837,7 +837,7 @@ flowchart TD
 
 ### Trade-Off 3: In-Memory Redis Seat Holding vs. Pure Relational Database Holding
 
-| Dimension | Redis In-Memory Hold Layer (Our Architecture) | Pure Database Holding (Relational Only) |
+| Dimension | Redis In-Memory Hold Layer (My Architecture) | Pure Database Holding (Relational Only) |
 | :--- | :--- | :--- |
 | **Throughput & Speed** | **Sub-millisecond ($>50,000\text{ ops/sec}$)**: Fast memory operations absorb the initial 200,000-user click stampede effortlessly. | **Limited by Disk I/O ($1,000\text{--}3,000\text{ writes/sec}$)**: High disk I/O and WAL logging create latency bottlenecks under heavy load. |
 | **Architectural Complexity** | **Higher**: Requires dual-state synchronization between Redis and PostgreSQL; must handle cache-invalidation edge cases. | **Simpler**: Single source of truth in PostgreSQL with standard SQL queries. |
@@ -848,12 +848,12 @@ flowchart TD
 
 ### Trade-Off 4: User-Selected Interactive Seating Chart vs. Best-Available General Admission Auto-Assignment
 
-| Dimension | User-Selected Interactive Seating (Our Choice) | Best-Available Auto-Assignment |
+| Dimension | User-Selected Interactive Seating (My Choice) | Best-Available Auto-Assignment |
 | :--- | :--- | :--- |
 | **User Satisfaction** | **High**: Fans love picking their exact section, row, and aisle seat next to friends. | **Lower**: Fans have no control over their specific seats; the algorithm assigns them whatever is next in line. |
 | **System Contention** | **High**: Multiple users can simultaneously click on the exact same popular seat (e.g., front-row center), triggering high row contention. | **Extremely Low**: The server sequentially dispenses seats from an internal queue, completely eliminating row contention. |
 | **Network & Rendering Overhead** | **Higher**: Must transmit SVG seat coordinates and status arrays for 20,000 seats to client browsers. | **Minimal**: Client only requests "2 tickets in Tier 1", transmitting tiny JSON payloads. |
-| **TicketHub Decision & Verdict** | **Selected User-Selected Seating with Fallback**: Fans demand interactive seat selection for high-value concert experiences. To mitigate the contention trade-off, we pair interactive maps with real-time WebSocket seat status broadcasts and Redis distributed locks. If a section reaches $>95\%$ capacity, the UI seamlessly switches to "Best Available" auto-assignment to rapidly clear remaining inventory without conflicts. |
+| **TicketHub Decision & Verdict** | **Selected User-Selected Seating with Fallback**: Fans demand interactive seat selection for high-value concert experiences. To mitigate the contention trade-off, I pair interactive maps with real-time WebSocket seat status broadcasts and Redis distributed locks. If a section reaches $>95\%$ capacity, the UI seamlessly switches to "Best Available" auto-assignment to rapidly clear remaining inventory without conflicts. |
 
 ---
 

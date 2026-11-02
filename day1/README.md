@@ -171,27 +171,252 @@ Every HTML page should begin with a standard document structure.
 
 ### HTML Boilerplate
 
-```html
 <!DOCTYPE html>
+<!--
+    Tells the browser that this document uses modern HTML5.
+    It helps the browser display the page correctly.
+-->
+
 <html lang="en">
+<!--
+    The <html> element is the root of the entire webpage.
+    lang="en" tells browsers and screen readers that the page
+    is written in English.
+-->
 
 <head>
+    <!--
+        The <head> contains information ABOUT the webpage.
+        Most of this information is not displayed inside the page.
+    -->
+
     <meta charset="UTF-8">
+    <!--
+        Allows the webpage to display many characters and symbols,
+        including letters, numbers, and special characters.
+    -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        Makes the webpage adapt to different screen sizes,
+        such as phones, tablets, and computers.
+    -->
 
-    <title>Web Foundations - Home</title>
+    <meta
+        name="description"
+        content="A beginner's journey into learning HTML and web development."
+    >
+    <!--
+        Provides a short description of the webpage.
+        Search engines may use this description in search results.
+    -->
+
+    <title>My Web Development Journey</title>
+    <!--
+        Sets the title displayed in the browser tab.
+    -->
+
+    <!--
+        Later, we can connect an external CSS file here:
+
+        <link rel="stylesheet" href="style.css">
+
+        The browser will use style.css to control the appearance
+        of this webpage.
+    -->
 </head>
 
 <body>
+    <!--
+        The <body> contains the content visitors can see
+        and interact with on the webpage.
+    -->
 
-    <!-- Visible content goes here -->
+    <header>
+        <!--
+            <header> contains introductory content.
+
+            It commonly includes a website name, logo,
+            heading, or navigation menu.
+        -->
+
+        <h1>My Web Development Journey</h1>
+        <!--
+            <h1> is the main heading of this webpage.
+            It tells visitors what the page is mainly about.
+        -->
+
+        <nav aria-label="Main navigation">
+            <!--
+                <nav> contains important navigation links.
+
+                aria-label gives assistive technology a clear
+                name for this navigation area.
+            -->
+
+            <ul>
+                <!--
+                    <ul> creates an unordered list.
+                    We use a list because navigation contains
+                    a collection of related links.
+                -->
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <!--
+                    <li> represents one list item.
+                    <a> creates a link.
+                    href tells the browser where the link goes.
+                -->
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!--
+            <main> contains the primary content of this webpage.
+
+            A typical page has one main content area.
+            It is placed between the header and footer.
+        -->
+
+        <section id="introduction">
+            <!--
+                <section> groups content that belongs together
+                under one topic.
+
+                Sections should usually have a heading.
+                id="introduction" gives this section a unique name
+                that can be linked to or targeted with CSS.
+            -->
+
+            <h2>Introduction</h2>
+            <!--
+                <h2> is a second-level heading.
+                It is below the main <h1> in the heading hierarchy.
+            -->
+
+            <p>
+                Welcome to my web development journey!
+                I am learning HTML, CSS, and JavaScript.
+            </p>
+            <!--
+                <p> represents a paragraph of text.
+            -->
+
+        </section>
+
+        <section id="learning">
+            <!--
+                This section groups content about what I am learning.
+            -->
+
+            <h2>What I Am Learning</h2>
+
+            <p>
+                I am starting with HTML to learn how to structure
+                webpages using elements and semantic HTML.
+            </p>
+
+        </section>
+
+        <article>
+            <!--
+                <article> represents content that can make sense
+                on its own or be shared independently.
+
+                Examples include a blog post, news article,
+                or individual learning journal entry.
+            -->
+
+            <h2>Day 1: HTML Essentials</h2>
+
+            <p>
+                Today, I learned about HTML elements, attributes,
+                headings, paragraphs, links, and semantic structure.
+            </p>
+
+        </article>
+
+        <aside>
+            <!--
+                <aside> contains related or supplementary content.
+
+                It is useful for things like related links,
+                tips, or additional resources.
+            -->
+
+            <h2>Learning Resources</h2>
+
+            <ul>
+                <li>
+                    <a href="https://www.w3schools.com/html/">
+                        W3Schools HTML Tutorial
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
+                        MDN HTML Documentation
+                    </a>
+                </li>
+            </ul>
+
+        </aside>
+
+        <!--
+            <div> is a generic container.
+
+            It does not describe the meaning of its content.
+            Use it when you need to group elements for styling
+            or layout and no semantic element is appropriate.
+
+            Example:
+
+            <div class="learning-card">
+                <h2>My Progress</h2>
+                <p>I completed my first HTML lesson.</p>
+            </div>
+        -->
+
+    </main>
+
+    <footer>
+        <!--
+            <footer> contains closing or supporting information
+            for the webpage or a section.
+
+            It commonly includes copyright information,
+            contact details, or additional links.
+        -->
+
+        <p>&copy; 2026 My Web Development Journey</p>
+        <!--
+            &copy; is an HTML entity that displays the © symbol.
+        -->
+
+        <p>
+            <a href="mailto:example@email.com">Contact Me</a>
+        </p>
+        <!--
+            mailto: opens the visitor's default email application
+            with the specified email address.
+        -->
+
+    </footer>
 
 </body>
-
 </html>
-```
-
 ### Understanding Each Part
 
 | Element | Purpose |

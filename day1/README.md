@@ -1,205 +1,215 @@
-# Day 1: Web Foundations & HTML Essentials
+# Day 1: Web Foundations & HTML Essentials 🌐
 
-Welcome to **Day 1** of my web development journey!
+Welcome to Day 1 of my Web Development Learning Journey!
 
-This guide documents the fundamental concepts of the World Wide Web and the essential HTML elements I learned while building my first webpages.
+Today, I am starting with the foundation of web development: **HTML (HyperText Markup Language)**.
 
-My goal is to understand how websites work, how HTML structures content, and how to create accessible, meaningful, and well-organized webpages.
+HTML is the language used to structure content on webpages. It tells the browser what content exists and what each piece of content represents.
 
----
+Think of building a website like constructing a house:
 
-## Table of Contents
+- **HTML** is the structure: walls, doors, windows, and rooms.
+- **CSS** is the appearance: paint, colours, decoration, and layout.
+- **JavaScript** is the functionality: electricity, switches, and interactive features.
 
-1. [What is HTML?](#1-what-is-html-the-skeleton-analogy)
-2. [How the Web Works](#2-how-the-web-works)
-3. [Anatomy of an HTML Element](#3-anatomy-of-an-html-element)
-4. [The HTML Document Structure](#4-the-html-document-structure)
-5. [HTML Elements and Attributes](#5-html-elements-and-attributes)
-6. [HTML Headings and Paragraphs](#6-html-headings-and-paragraphs)
-7. [Text Formatting Elements](#7-text-formatting-elements)
-8. [Links and Navigation](#8-links-and-navigation)
-9. [Images and Media](#9-images-and-media)
-10. [Lists in HTML](#10-lists-in-html)
-11. [Semantic HTML](#11-semantic-html)
-12. [Containers and Grouping Elements](#12-containers-and-grouping-elements)
-13. [HTML Tables](#13-html-tables)
-14. [HTML Forms and Input Elements](#14-html-forms-and-input-elements)
-15. [HTML Buttons](#15-html-buttons)
-16. [HTML Attributes](#16-html-attributes)
-17. [HTML Entities and Special Characters](#17-html-entities-and-special-characters)
-18. [HTML Comments](#18-html-comments)
-19. [HTML Metadata and SEO](#19-html-metadata-and-seo)
-20. [Accessibility Fundamentals](#20-accessibility-fundamentals)
-21. [HTML Validation and Debugging](#21-html-validation-and-debugging)
-22. [Files in This Directory](#22-files-in-this-directory-explained)
-23. [How to View in Browser](#23-how-to-view-in-browser-using-live-server)
-24. [HTML Best Practices](#24-html-best-practices)
-25. [External Learning Resources](#25-external-learning-resources)
-26. [Day 1 Learning Outcomes](#26-day-1-learning-outcomes)
-27. [Final Reflection](#27-final-reflection)
+Today, my focus is understanding HTML and learning how to build a properly structured webpage.
 
 ---
 
-## 1. What is HTML? (The Skeleton Analogy)
+## 📚 Table of Contents
+
+1. [What Is HTML?](#-what-is-html)
+2. [How Does the Web Work?](#-how-does-the-web-work)
+3. [Understanding HTML Elements](#-understanding-html-elements)
+4. [HTML Element Anatomy](#-html-element-anatomy)
+5. [HTML5 Boilerplate](#-html5-boilerplate)
+6. [HTML Headings](#-html-headings)
+7. [Paragraphs and Text Formatting](#-paragraphs-and-text-formatting)
+8. [Links and Navigation](#-links-and-navigation)
+9. [Images and Media](#-images-and-media)
+10. [HTML Lists](#-html-lists)
+11. [Semantic HTML](#-semantic-html)
+12. [Div and Span Elements](#-div-and-span-elements)
+13. [HTML Tables](#-html-tables)
+14. [HTML Forms](#-html-forms)
+15. [HTML Attributes](#-html-attributes)
+16. [HTML Entities](#-html-entities)
+17. [HTML Comments](#-html-comments)
+18. [HTML Metadata](#-html-metadata)
+19. [Accessibility Basics](#-accessibility-basics)
+20. [HTML Validation and Debugging](#-html-validation-and-debugging)
+21. [Project Structure](#-project-structure)
+22. [Running the Project](#-running-the-project)
+23. [Best Practices](#-best-practices)
+24. [Learning Resources](#-learning-resources)
+25. [What I Learned](#-what-i-learned)
+
+---
+
+## 🌍 What Is HTML?
 
 HTML stands for **HyperText Markup Language**.
 
-It is the standard markup language used to structure content on the World Wide Web.
+It is a markup language used to define the structure and meaning of content on a webpage.
 
-Think of a webpage like a human body or a building:
+HTML is not a programming language because it does not provide general-purpose programming logic like loops, conditions, or functions.
 
-- **HTML (HyperText Markup Language)** is the skeleton and bricks. It gives the page structure and determines where titles, paragraphs, images, buttons, and forms belong.
-- **CSS (Cascading Style Sheets)** is the clothing and paint. It controls colors, fonts, spacing, layouts, and visual appearance.
-- **JavaScript** is the muscles and brain. It makes webpages interactive, allowing buttons to respond to clicks, forms to validate data, and content to update dynamically.
+### What can HTML create?
 
-HTML is **not a programming language**. It is a markup language because I use tags to describe the structure and meaning of content.
+- Headings and paragraphs.
+- Images and hyperlinks.
+- Lists and tables.
+- Forms and input fields.
+- Page sections and navigation.
+- Audio and video content.
 
-For example:
+### Example
 
 ```html
 <h1>Welcome to My Website</h1>
-
 <p>This is my first webpage.</p>
 ```
 
-The browser understands that the first element is a main heading and the second is a paragraph.
-
-### My takeaway
-
-HTML provides the foundation of every webpage. Before learning CSS and JavaScript, I need to understand how to structure content correctly.
+The browser interprets this HTML and displays a heading followed by a paragraph.
 
 ---
 
-## 2. How the Web Works
+## 🌐 How Does the Web Work?
 
-When I visit a website, several things happen behind the scenes.
+When you visit a website, several things happen:
 
-### The basic process
-
-1. I enter a website address (URL) into my browser.
-2. The browser uses DNS to find the server's IP address.
-3. The browser sends an HTTP or HTTPS request to the server.
+1. You enter a website address, such as `www.example.com`.
+2. Your browser uses DNS to find the website's IP address.
+3. Your browser sends a request to the website's server.
 4. The server responds with resources such as HTML, CSS, JavaScript, and images.
-5. The browser processes these resources and renders the webpage.
-6. I interact with the webpage using my mouse, keyboard, or touchscreen.
+5. The browser interprets these resources and displays the webpage.
 
-### Important terminology
+### Important web technologies
 
-| Term | Meaning |
+| Technology | Purpose |
 |---|---|
-| Web Browser | Software used to access websites, such as Chrome or Firefox |
-| Web Server | A computer or service that stores and delivers website resources |
-| URL | The address of a resource on the web |
-| HTTP | A protocol used to transfer web resources |
-| HTTPS | HTTP secured using encryption through TLS |
-| DNS | Translates domain names into IP addresses |
 | HTML | Structures webpage content |
-| CSS | Controls webpage presentation |
-| JavaScript | Adds behavior and interactivity |
+| CSS | Styles and arranges webpage content |
+| JavaScript | Adds interactivity and behaviour |
+| HTTP/HTTPS | Allows browsers and servers to communicate |
+| DNS | Translates domain names into IP addresses |
 
-### Example URL
-
-```text
-https://www.example.com/about.html
-```
-
-- `https` is the protocol.
-- `www.example.com` is the domain name.
-- `/about.html` is the path to the requested resource.
-
-### My takeaway
-
-HTML is one part of a larger web system. Understanding how browsers and servers communicate will help me become a better web developer.
+**Networking connection:** Understanding DNS, IP addresses, HTTP, and servers is useful because websites depend on networks to communicate. This also connects web development with my interest in network engineering.
 
 ---
 
-## 3. Anatomy of an HTML Element
+## 🧱 Understanding HTML Elements
 
-Most HTML elements consist of an opening tag, content, and a closing tag.
+An HTML element is a building block of a webpage.
+
+Most HTML elements have:
+
+- An opening tag.
+- Content.
+- A closing tag.
+
+Example:
 
 ```html
-<p>Hello, world!</p>
+<p>This is a paragraph.</p>
 ```
+
+Explanation:
 
 - `<p>` is the opening tag.
-- `Hello, world!` is the content.
+- `This is a paragraph.` is the content.
 - `</p>` is the closing tag.
-- The entire structure is an HTML element.
+- The complete structure is called an HTML element.
 
-### The Sandwich Rule
+### Common categories of HTML elements
 
-Think of an HTML element like a sandwich:
+**1. Container elements**
 
-- The opening tag is the top slice of bread.
-- The content is the filling.
-- The closing tag is the bottom slice of bread.
-
-Most elements should be properly opened and closed.
-
-### Nesting Elements
-
-HTML elements can be placed inside other elements.
+These normally have an opening tag, content, and closing tag.
 
 ```html
-<section>
-    <h2>About Me</h2>
-    <p>I am learning <strong>web development</strong>.</p>
-</section>
+<h1>My Heading</h1>
+<p>My paragraph.</p>
+<div>Content inside a container.</div>
 ```
 
-The `<strong>` element is nested inside the paragraph, which is nested inside the section.
+**2. Void elements**
 
-### Correct Nesting
+These do not have closing tags because they cannot contain content.
 
 ```html
-<p>This is <strong>correctly nested</strong> HTML.</p>
+<img src="profile.jpg" alt="My profile picture">
+<br>
+<hr>
+<input type="text">
+<meta charset="UTF-8">
 ```
 
-### Incorrect Nesting
-
-```html
-<p>This is <strong>incorrectly nested.</p></strong>
-```
-
-**My takeaway:** HTML elements should be properly nested so that the document structure remains predictable and understandable.
+Remember: Void elements do not use closing tags such as `</img>` or `</br>`.
 
 ---
 
-## 4. The HTML Document Structure
+## 🔍 HTML Element Anatomy
 
-Every HTML page should begin with a standard document structure.
+Let's examine an HTML element with an attribute:
 
-### HTML Boilerplate
+```html
+<a href="https://www.google.com">Visit Google</a>
+```
 
+| Part | Meaning |
+|---|---|
+| `<a>` | Opening anchor tag |
+| `href` | Attribute name |
+| `"https://www.google.com"` | Attribute value |
+| `Visit Google` | Visible link text |
+| `</a>` | Closing tag |
+
+An **attribute** provides additional information about an HTML element.
+
+---
+
+## 🏗️ HTML5 Boilerplate
+
+An HTML boilerplate is a standard starting structure for creating an HTML webpage.
+
+Every HTML project should begin with a proper document structure.
+
+### Complete beginner-friendly semantic HTML5 boilerplate
+
+The following example includes comments explaining what each element does.
+
+```html
 <!DOCTYPE html>
 <!--
-    Tells the browser that this document uses modern HTML5.
-    It helps the browser display the page correctly.
+    Declares that this document uses HTML5.
+    It helps the browser interpret the page correctly.
 -->
 
 <html lang="en">
 <!--
-    The <html> element is the root of the entire webpage.
-    lang="en" tells browsers and screen readers that the page
-    is written in English.
+    The <html> element is the root of the webpage.
+    lang="en" tells browsers and screen readers
+    that the main language of this document is English.
 -->
 
 <head>
     <!--
         The <head> contains information ABOUT the webpage.
-        Most of this information is not displayed inside the page.
+        Most of this information is not directly displayed
+        inside the visible webpage.
     -->
 
     <meta charset="UTF-8">
     <!--
-        Allows the webpage to display many characters and symbols,
+        Supports a wide range of characters and symbols,
         including letters, numbers, and special characters.
     -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--
         Makes the webpage adapt to different screen sizes,
-        such as phones, tablets, and computers.
+        including mobile phones, tablets, and computers.
     -->
 
     <meta
@@ -217,58 +227,45 @@ Every HTML page should begin with a standard document structure.
     -->
 
     <!--
-        Later, we can connect an external CSS file here:
+        We will connect an external CSS file here when learning CSS:
 
         <link rel="stylesheet" href="style.css">
 
-        The browser will use style.css to control the appearance
-        of this webpage.
+        This tells the browser to load the styles from style.css.
     -->
+
 </head>
 
 <body>
     <!--
-        The <body> contains the content visitors can see
-        and interact with on the webpage.
+        The <body> contains the actual webpage content.
+        Everything visitors see and interact with is placed here.
     -->
 
     <header>
         <!--
-            <header> contains introductory content.
-
-            It commonly includes a website name, logo,
-            heading, or navigation menu.
+            HEADER:
+            Contains introductory content such as the website
+            name, logo, heading, or navigation menu.
         -->
 
         <h1>My Web Development Journey</h1>
-        <!--
-            <h1> is the main heading of this webpage.
-            It tells visitors what the page is mainly about.
-        -->
+        <!-- Main heading of the webpage. -->
 
         <nav aria-label="Main navigation">
             <!--
-                <nav> contains important navigation links.
-
-                aria-label gives assistive technology a clear
-                name for this navigation area.
+                NAV:
+                Contains important navigation links.
+                aria-label provides a descriptive name
+                for screen readers.
             -->
 
             <ul>
-                <!--
-                    <ul> creates an unordered list.
-                    We use a list because navigation contains
-                    a collection of related links.
-                -->
+                <!-- An unordered list groups navigation links. -->
 
                 <li>
                     <a href="index.html">Home</a>
                 </li>
-                <!--
-                    <li> represents one list item.
-                    <a> creates a link.
-                    href tells the browser where the link goes.
-                -->
 
                 <li>
                     <a href="about.html">About</a>
@@ -280,80 +277,69 @@ Every HTML page should begin with a standard document structure.
 
             </ul>
         </nav>
+
     </header>
 
     <main>
         <!--
-            <main> contains the primary content of this webpage.
+            MAIN:
+            Contains the primary content of the webpage.
 
-            A typical page has one main content area.
+            A typical page should have one main content area.
             It is placed between the header and footer.
         -->
 
         <section id="introduction">
             <!--
-                <section> groups content that belongs together
-                under one topic.
+                SECTION:
+                Groups related content under one topic.
 
                 Sections should usually have a heading.
-                id="introduction" gives this section a unique name
-                that can be linked to or targeted with CSS.
+                The id gives this section a unique identifier.
             -->
 
             <h2>Introduction</h2>
-            <!--
-                <h2> is a second-level heading.
-                It is below the main <h1> in the heading hierarchy.
-            -->
 
             <p>
                 Welcome to my web development journey!
                 I am learning HTML, CSS, and JavaScript.
             </p>
-            <!--
-                <p> represents a paragraph of text.
-            -->
 
         </section>
 
         <section id="learning">
-            <!--
-                This section groups content about what I am learning.
-            -->
+            <!-- Another section for a different topic. -->
 
             <h2>What I Am Learning</h2>
 
             <p>
-                I am starting with HTML to learn how to structure
-                webpages using elements and semantic HTML.
+                I am starting with HTML to understand
+                how webpages are structured.
             </p>
 
         </section>
 
         <article>
             <!--
-                <article> represents content that can make sense
-                on its own or be shared independently.
-
-                Examples include a blog post, news article,
-                or individual learning journal entry.
+                ARTICLE:
+                Represents independent content that can make
+                sense on its own, such as a blog post or news story.
             -->
 
             <h2>Day 1: HTML Essentials</h2>
 
             <p>
-                Today, I learned about HTML elements, attributes,
-                headings, paragraphs, links, and semantic structure.
+                Today, I learned about HTML elements,
+                attributes, headings, links, and semantic HTML.
             </p>
 
         </article>
 
         <aside>
             <!--
-                <aside> contains related or supplementary content.
-
-                It is useful for things like related links,
-                tips, or additional resources.
+                ASIDE:
+                Contains supplementary or related information,
+                such as useful links, tips, or resources.
             -->
 
             <h2>Learning Resources</h2>
@@ -375,9 +361,9 @@ Every HTML page should begin with a standard document structure.
         </aside>
 
         <!--
-            <div> is a generic container.
+            DIV:
+            A generic container without semantic meaning.
 
-            It does not describe the meaning of its content.
             Use it when you need to group elements for styling
             or layout and no semantic element is appropriate.
 
@@ -393,287 +379,192 @@ Every HTML page should begin with a standard document structure.
 
     <footer>
         <!--
-            <footer> contains closing or supporting information
-            for the webpage or a section.
-
-            It commonly includes copyright information,
-            contact details, or additional links.
+            FOOTER:
+            Contains closing or supporting information,
+            such as copyright details and contact information.
         -->
 
         <p>&copy; 2026 My Web Development Journey</p>
-        <!--
-            &copy; is an HTML entity that displays the © symbol.
-        -->
 
         <p>
             <a href="mailto:example@email.com">Contact Me</a>
         </p>
-        <!--
-            mailto: opens the visitor's default email application
-            with the specified email address.
-        -->
 
     </footer>
 
 </body>
 </html>
-### Understanding Each Part
+```
+
+### Understanding the boilerplate structure
+
+```text
+<html>
+│
+├── <head>
+│   ├── Character encoding
+│   ├── Viewport settings
+│   ├── Description
+│   └── Page title
+│
+└── <body>
+    │
+    ├── <header>
+    │   ├── Website heading
+    │   └── <nav>
+    │       └── Navigation links
+    │
+    ├── <main>
+    │   ├── <section> Introduction
+    │   ├── <section> Learning content
+    │   ├── <article> Blog or learning entry
+    │   └── <aside> Related resources
+    │
+    └── <footer>
+        └── Copyright and contact details
+```
+
+### Important semantic HTML rules
+
+- `<header>` introduces a page or section.
+- `<nav>` groups important navigation links.
+- `<main>` contains the primary content of the page.
+- `<section>` groups related content under a topic.
+- `<article>` represents independent content.
+- `<aside>` contains supplementary content.
+- `<footer>` contains closing or supporting information.
+- `<div>` is a generic block-level container with no semantic meaning.
+- `<span>` is a generic inline container with no semantic meaning.
+
+Do not use semantic elements just to make your code look professional. Choose elements based on the meaning of the content.
+
+---
+
+## 🔠 HTML Headings
+
+HTML provides six heading levels, from `<h1>` to `<h6>`.
+
+```html
+<h1>Main Heading</h1>
+<h2>Section Heading</h2>
+<h3>Subsection Heading</h3>
+<h4>Fourth-Level Heading</h4>
+<h5>Fifth-Level Heading</h5>
+<h6>Sixth-Level Heading</h6>
+```
+
+### Heading hierarchy
 
 | Element | Purpose |
 |---|---|
-| `<!DOCTYPE html>` | Tells the browser to use modern HTML standards |
-| `<html>` | The root element containing the entire document |
-| `lang="en"` | Identifies the document language as English |
-| `<head>` | Contains metadata and resource references |
-| `<meta charset="UTF-8">` | Defines character encoding |
-| `<meta name="viewport">` | Helps the page display correctly on mobile devices |
-| `<title>` | Defines the browser tab title |
-| `<body>` | Contains the webpage's visible content |
+| `<h1>` | Main page heading |
+| `<h2>` | Major section |
+| `<h3>` | Subsection |
+| `<h4>` | Smaller subsection |
+| `<h5>` | Lower-level heading |
+| `<h6>` | Lowest heading level |
 
-### Important Difference
-
-The `<head>` contains information about the document, while the `<body>` contains the content users see and interact with.
+**Important:** Use headings to organize your content logically, not simply to make text bigger or smaller.
 
 ---
 
-## 5. HTML Elements and Attributes
-
-An HTML element defines a piece of content or structure.
-
-An attribute provides additional information about an element.
-
-### Example
-
-```html
-<a href="https://www.google.com" target="_blank">
-    Visit Google
-</a>
-```
-
-Here:
-
-- `<a>` is the anchor element.
-- `href` specifies the destination.
-- `target="_blank"` opens the destination in a new browsing context.
-- `Visit Google` is the visible link text.
-
-### Common Attribute Types
-
-| Attribute | Purpose | Example |
-|---|---|---|
-| `id` | Identifies a unique element | `id="intro"` |
-| `class` | Groups elements for styling or scripting | `class="card"` |
-| `href` | Specifies a link destination | `href="about.html"` |
-| `src` | Specifies a media source | `src="image.jpg"` |
-| `alt` | Provides alternative text for images | `alt="Laptop on a desk"` |
-| `title` | Provides advisory information | `title="More information"` |
-| `style` | Adds inline CSS | `style="color: red;"` |
-| `name` | Identifies form data | `name="email"` |
-| `value` | Defines an input value | `value="Kenya"` |
-| `required` | Makes a form field mandatory | `required` |
-| `disabled` | Disables an element | `disabled` |
-
-### Boolean Attributes
-
-Some attributes do not need a value.
-
-```html
-<input type="text" required>
-```
-
-Other examples include:
-
-```html
-<button disabled>Unavailable</button>
-
-<input type="checkbox" checked>
-```
-
-**My takeaway:** Attributes make HTML elements more useful by defining their behavior, identity, and additional information.
-
----
-
-## 6. HTML Headings and Paragraphs
-
-Headings organize content into a logical hierarchy.
-
-HTML provides six heading levels:
-
-```html
-<h1>Main Page Heading</h1>
-
-<h2>Major Section</h2>
-
-<h3>Subsection</h3>
-
-<h4>Smaller Section</h4>
-
-<h5>Minor Heading</h5>
-
-<h6>Lowest-Level Heading</h6>
-```
-
-### Important Guidelines
-
-- Use `<h1>` for the main page heading.
-- Use `<h2>` for major sections.
-- Use `<h3>` for subsections under an `<h2>`.
-- Use headings based on meaning, not merely their visual size.
-- Do not skip heading levels without a logical reason.
-
-### Paragraphs
+## 📝 Paragraphs and Text Formatting
 
 The `<p>` element defines a paragraph.
 
 ```html
-<p>
-    I am learning HTML to build modern websites
-    and develop my software engineering skills.
-</p>
+<p>HTML is used to structure webpage content.</p>
 ```
 
-### Line Breaks
-
-The `<br>` element creates a line break.
+### Common text formatting elements
 
 ```html
-<p>
-    Clarryson Kedogo<br>
-    Computer Science Student<br>
-    Aspiring Network Engineer
-</p>
-```
+<strong>Important text</strong>
 
-### Horizontal Rule
+<em>Emphasized text</em>
 
-The `<hr>` element represents a thematic break between sections.
+<b>Bold text without added importance</b>
 
-```html
-<h2>About Me</h2>
+<i>Text in an alternate voice or mood</i>
 
-<p>I am learning web development.</p>
+<u>Underlined text</u>
 
-<hr>
+<mark>Highlighted text</mark>
 
-<h2>My Goals</h2>
-```
+<small>Smaller text</small>
 
-**My takeaway:** Headings and paragraphs help create readable content and improve document organization.
+<del>Deleted text</del>
 
----
+<ins>Inserted text</ins>
 
-## 7. Text Formatting Elements
+<sub>Subscript text</sub>
 
-HTML provides elements that communicate meaning or formatting for text.
+<sup>Superscript text</sup>
 
-| Element | Purpose |
-|---|---|
-| `<strong>` | Indicates strong importance |
-| `<em>` | Indicates emphasis |
-| `<b>` | Draws attention without adding importance |
-| `<i>` | Represents text in an alternate voice or mood |
-| `<mark>` | Highlights relevant text |
-| `<small>` | Represents smaller side comments or fine print |
-| `<del>` | Represents deleted text |
-| `<ins>` | Represents inserted text |
-| `<sub>` | Displays subscript text |
-| `<sup>` | Displays superscript text |
-| `<code>` | Represents a fragment of computer code |
-| `<pre>` | Preserves whitespace and formatting |
-| `<blockquote>` | Represents an extended quotation |
-| `<q>` | Represents a short inline quotation |
-| `<abbr>` | Represents an abbreviation |
-| `<time>` | Represents a date or time |
-
-### Examples
-
-```html
-<p>This is <strong>important</strong> information.</p>
-
-<p>I am <em>really</em> excited to learn HTML.</p>
-
-<p>Water is H<sub>2</sub>O.</p>
-
-<p>Mathematics: x<sup>2</sup></p>
-
-<p>Use the <code>console.log()</code> function.</p>
+<code>console.log("Hello World");</code>
 
 <pre>
-Line one
-Line two
-Line three
+This preserves
+spaces and line breaks.
 </pre>
 
 <blockquote>
-    Learning never stops.
+    This is a longer quotation from another source.
 </blockquote>
 
-<p>
-    I study <abbr title="Computer Science">CS</abbr>.
-</p>
+<q>This is a short quotation.</q>
 
-<p>
-    Published on <time datetime="2026-11-02">November 2, 2026</time>.
-</p>
+<abbr title="HyperText Markup Language">HTML</abbr>
+
+<time datetime="2026-11-02">November 2, 2026</time>
 ```
 
-### My takeaway
+### Important differences
 
-HTML text elements do more than change appearance. They communicate the meaning and importance of content.
+- `<strong>` indicates strong importance.
+- `<b>` draws attention without adding importance.
+- `<em>` adds emphasis.
+- `<i>` represents text in an alternate voice or mood.
+- `<pre>` preserves whitespace and line breaks.
+- `<code>` represents a piece of computer code.
 
 ---
 
-## 8. Links and Navigation
+## 🔗 Links and Navigation
 
-The `<a>` element creates hyperlinks that connect webpages and resources.
+The `<a>` element creates hyperlinks.
 
-### Internal Links
+```html
+<a href="https://www.google.com">Visit Google</a>
+```
+
+### Types of links
+
+**1. External link**
+
+```html
+<a href="https://www.w3schools.com/">Visit W3Schools</a>
+```
+
+**2. Internal page link**
 
 ```html
 <a href="about.html">About Me</a>
 ```
 
-This opens another HTML file within my project.
-
-### External Links
+**3. Email link**
 
 ```html
-<a href="https://www.w3schools.com/html/">
-    Learn HTML on W3Schools
-</a>
+<a href="mailto:hello@example.com">Send Me an Email</a>
 ```
 
-### Opening Links in a New Tab
+**4. Telephone link**
 
 ```html
-<a
-    href="https://developer.mozilla.org/"
-    target="_blank"
-    rel="noopener"
->
-    Visit MDN
-</a>
+<a href="tel:+254700000000">Call Me</a>
 ```
 
-The `rel="noopener"` attribute prevents the newly opened page from accessing the original page through `window.opener`.
-
-### Email Links
-
-```html
-<a href="mailto:example@email.com">
-    Send Me an Email
-</a>
-```
-
-### Telephone Links
-
-```html
-<a href="tel:+254700000000">
-    Call Me
-</a>
-```
-
-### Linking to a Section
+**5. Link to a section on the same page**
 
 ```html
 <a href="#contact">Go to Contact Section</a>
@@ -683,130 +574,112 @@ The `rel="noopener"` attribute prevents the newly opened page from accessing the
 </section>
 ```
 
-### Navigation Example
+**6. Open a link in a new tab**
 
 ```html
-<header>
-    <nav aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+<a
+    href="https://developer.mozilla.org/"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    Visit MDN
+</a>
 ```
 
-**My takeaway:** Links connect webpages and make website navigation possible.
+`target="_blank"` opens the link in a new tab. `rel="noopener noreferrer"` adds protection when opening an external page this way.
 
 ---
 
-## 9. Images and Media
+## 🖼️ Images and Media
 
-The `<img>` element displays images on a webpage.
-
-### Basic Image
+The `<img>` element displays images.
 
 ```html
-<img src="images/profile.jpg" alt="My profile photograph">
+<img src="profile.jpg" alt="My profile picture">
 ```
 
-### Important Image Attributes
+### Important image attributes
 
 | Attribute | Purpose |
 |---|---|
 | `src` | Specifies the image location |
 | `alt` | Provides alternative text |
-| `width` | Specifies the image width |
-| `height` | Specifies the image height |
-| `loading="lazy"` | Defers loading of off-screen images |
+| `width` | Sets image width |
+| `height` | Sets image height |
+| `loading` | Controls image loading behaviour |
 
-### Example
+Example:
 
 ```html
 <img
-    src="images/laptop.jpg"
-    alt="A laptop displaying a code editor"
-    width="600"
-    height="400"
+    src="images/profile.jpg"
+    alt="A student working on a laptop"
+    width="300"
+    height="200"
     loading="lazy"
 >
 ```
 
-### Images With Captions
-
-```html
-<figure>
-    <img
-        src="images/network-lab.jpg"
-        alt="Students working in a networking laboratory"
-        width="600"
-        height="400"
-    >
-
-    <figcaption>
-        My networking learning journey.
-    </figcaption>
-</figure>
-```
-
-### Audio
+### Adding audio
 
 ```html
 <audio controls>
-    <source src="audio/sample.mp3" type="audio/mpeg">
+    <source src="audio.mp3" type="audio/mpeg">
     Your browser does not support audio.
 </audio>
 ```
 
-### Video
+### Adding video
 
 ```html
-<video controls width="600">
-    <source src="videos/intro.mp4" type="video/mp4">
+<video controls width="500" poster="thumbnail.jpg">
+    <source src="video.mp4" type="video/mp4">
     Your browser does not support video.
 </video>
 ```
 
-**My takeaway:** Images and media make webpages more engaging, but I should always provide appropriate alternative text and consider performance.
+### Adding a figure and caption
+
+```html
+<figure>
+    <img src="network.jpg" alt="A network switch connected to cables">
+    <figcaption>A simple computer networking setup.</figcaption>
+</figure>
+```
 
 ---
 
-## 10. Lists in HTML
+## 📋 HTML Lists
 
-HTML provides three main types of lists.
+HTML provides three common types of lists.
 
-### 10.1 Unordered Lists
+### 1. Unordered list
 
-The `<ul>` element creates a bullet-point list.
+Used when the order of items does not matter.
 
 ```html
-<h2>My Skills</h2>
-
 <ul>
-    <li>Python Programming</li>
-    <li>Linux Administration</li>
-    <li>Networking</li>
-    <li>Web Development</li>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
 </ul>
 ```
 
-### 10.2 Ordered Lists
+### 2. Ordered list
 
-The `<ol>` element creates a numbered list.
+Used when items follow a specific sequence.
 
 ```html
-<h2>My Learning Plan</h2>
-
 <ol>
     <li>Learn HTML</li>
     <li>Learn CSS</li>
     <li>Learn JavaScript</li>
-    <li>Build Projects</li>
 </ol>
 ```
 
-### 10.3 Description Lists
+### 3. Description list
 
-The `<dl>` element represents a list of terms and descriptions.
+Used for terms and their explanations.
 
 ```html
 <dl>
@@ -814,137 +687,109 @@ The `<dl>` element represents a list of terms and descriptions.
     <dd>Structures webpage content.</dd>
 
     <dt>CSS</dt>
-    <dd>Controls webpage presentation.</dd>
+    <dd>Styles webpage content.</dd>
 
     <dt>JavaScript</dt>
-    <dd>Adds interactivity.</dd>
+    <dd>Adds interactivity to webpages.</dd>
 </dl>
 ```
 
-### My takeaway
-
-Lists help organize information into clear, readable groups.
-
 ---
 
-## 11. Semantic HTML
+## 🧩 Semantic HTML
 
-Semantic HTML uses elements that describe the meaning and purpose of content.
+Semantic HTML means using elements that describe the meaning and purpose of content.
 
-Instead of using generic `<div>` elements for everything, I use semantic elements where appropriate.
+Instead of using `<div>` for everything, choose elements that communicate what the content represents.
 
-| Element | Purpose | Analogy |
-|---|---|---|
-| `<header>` | Introductory content or page header | Letterhead |
-| `<nav>` | Navigation links | Table of contents |
-| `<main>` | Main content of the document | Main article |
-| `<section>` | Thematic grouping of content | Chapter |
-| `<article>` | Self-contained content | Newspaper article |
-| `<aside>` | Related or supplementary content | Sidebar |
-| `<footer>` | Footer information | Document fine print |
-| `<figure>` | Self-contained media or illustration | Image with caption |
-| `<figcaption>` | Caption for a figure | Image description |
+### Common semantic elements
 
-### Example
+| Element | Meaning |
+|---|---|
+| `<header>` | Introductory content |
+| `<nav>` | Navigation links |
+| `<main>` | Main page content |
+| `<section>` | Thematic grouping |
+| `<article>` | Independent content |
+| `<aside>` | Supplementary content |
+| `<footer>` | Footer information |
+| `<figure>` | Self-contained media or illustration |
+| `<figcaption>` | Caption for a figure |
+| `<address>` | Contact information for a person or organization |
+| `<details>` | Expandable information |
+| `<summary>` | Heading for a details element |
+
+### Example: Details and summary
 
 ```html
-<body>
-
-    <header>
-        <h1>My Web Development Journey</h1>
-
-        <nav aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-        </nav>
-    </header>
-
-    <main>
-
-        <section>
-            <h2>My Learning Journey</h2>
-            <p>I am learning web development step by step.</p>
-        </section>
-
-        <article>
-            <h2>Day 1: HTML Essentials</h2>
-            <p>Today I learned the foundations of HTML.</p>
-        </article>
-
-        <aside>
-            <h2>Learning Resources</h2>
-            <p>Explore W3Schools and MDN documentation.</p>
-        </aside>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 My Web Development Journey</p>
-    </footer>
-
-</body>
+<details>
+    <summary>What is HTML?</summary>
+    <p>HTML stands for HyperText Markup Language.</p>
+</details>
 ```
 
-### My takeaway
+Clicking the summary expands or collapses the additional information.
 
-Semantic HTML improves accessibility, readability, maintainability, and search engine understanding.
+### Why semantic HTML matters
+
+1. Makes code easier to understand.
+2. Improves accessibility.
+3. Helps search engines understand page structure.
+4. Makes websites easier to maintain.
+5. Gives browsers meaningful information about content.
 
 ---
 
-## 12. Containers and Grouping Elements
+## 📦 Div and Span Elements
 
-Two important HTML elements used for grouping content are `<div>` and `<span>`.
+Both `<div>` and `<span>` are generic containers. They do not describe the meaning of their content.
 
-### The `<div>` Element
+### Div element
 
-A `<div>` is a generic block-level container.
+`<div>` is a block-level container commonly used to group larger sections of content.
 
 ```html
-<div class="card">
-    <h2>My First Project</h2>
-    <p>This is a project description.</p>
+<div class="profile-card">
+    <h2>Clarryson</h2>
+    <p>Computer Science Student</p>
 </div>
 ```
 
-It is useful when I need to group content for CSS styling or JavaScript functionality.
+### Span element
 
-### The `<span>` Element
-
-A `<span>` is a generic inline container.
+`<span>` is an inline container commonly used to target a small part of text.
 
 ```html
 <p>
     I am learning
-    <span class="highlight">HTML and CSS</span>
-    every day.
+    <span class="highlight">HTML</span>
+    today.
 </p>
 ```
 
 ### Difference
 
-| Element | Default Display | Typical Use |
-|---|---|---|
-| `<div>` | Block | Grouping larger sections |
-| `<span>` | Inline | Styling a small portion of text |
-
-**My takeaway:** I should use semantic elements when they describe the content's purpose, and use `<div>` or `<span>` when no more meaningful element is appropriate.
+| `<div>` | `<span>` |
+|---|---|
+| Block-level by default | Inline by default |
+| Starts on a new line | Stays within the text flow |
+| Groups larger content | Targets small inline content |
+| Commonly used for layout | Commonly used for text styling |
 
 ---
 
-## 13. HTML Tables
+## 📊 HTML Tables
 
-Tables display structured information in rows and columns.
+Tables organize information into rows and columns.
 
-They should be used for tabular data, not for designing the overall layout of a webpage.
-
-### Important Table Elements
+### Important table elements
 
 | Element | Purpose |
 |---|---|
-| `<table>` | Creates the table |
-| `<caption>` | Provides a table title |
-| `<thead>` | Groups header rows |
-| `<tbody>` | Groups the main data rows |
+| `<table>` | Creates a table |
+| `<caption>` | Gives the table a title |
+| `<thead>` | Groups the header rows |
+| `<tbody>` | Groups the main table content |
 | `<tfoot>` | Groups footer rows |
 | `<tr>` | Creates a table row |
 | `<th>` | Creates a header cell |
@@ -958,665 +803,514 @@ They should be used for tabular data, not for designing the overall layout of a 
 
     <thead>
         <tr>
-            <th scope="col">Day</th>
-            <th scope="col">Topic</th>
-            <th scope="col">Status</th>
+            <th>Day</th>
+            <th>Topic</th>
+            <th>Status</th>
         </tr>
     </thead>
 
     <tbody>
         <tr>
             <td>Day 1</td>
-            <td>HTML Essentials</td>
+            <td>HTML</td>
             <td>Completed</td>
         </tr>
 
         <tr>
             <td>Day 2</td>
-            <td>CSS Fundamentals</td>
+            <td>CSS</td>
             <td>Completed</td>
         </tr>
     </tbody>
 </table>
 ```
 
-### Important Guidelines
-
-- Use `<th>` for table headings.
-- Use `<td>` for regular data cells.
-- Use `scope="col"` or `scope="row"` where appropriate.
-- Use CSS to style tables rather than the outdated `border` attribute.
-- Do not use tables for general page layouts.
-
-**My takeaway:** Tables are useful for displaying structured data clearly and accessibly.
+Use tables for tabular data, not for creating the overall layout of a webpage.
 
 ---
 
-## 14. HTML Forms and Input Elements
+## 📝 HTML Forms
 
-Forms allow users to enter information.
+Forms collect information from users.
 
-They are used for registration pages, contact forms, login screens, surveys, and search interfaces.
+Examples include registration forms, login pages, contact forms, and search boxes.
 
-### The `<form>` Element
+### Important form elements
 
-The `<form>` element groups form controls together.
-
-```html
-<form action="/submit" method="post">
-
-    <!-- Form controls go here -->
-
-</form>
-```
-
-- `action` specifies where the form data should be sent.
-- `method="post"` sends data in the request body.
-
-A real form needs a server-side endpoint or a form-processing service to process submissions.
-
-### 14.1 The Label Element
-
-```html
-<label for="username">Username:</label>
-
-<input type="text" id="username" name="username">
-```
-
-The `for` attribute connects the label to the input's `id`.
-
-Clicking the label focuses the associated input.
-
-### 14.2 Common Input Types
-
-| Input Type | Purpose |
+| Element | Purpose |
 |---|---|
-| `text` | Single-line text |
+| `<form>` | Creates a form |
+| `<label>` | Describes an input |
+| `<input>` | Collects user input |
+| `<textarea>` | Collects longer text |
+| `<select>` | Creates a dropdown |
+| `<option>` | Defines a dropdown option |
+| `<button>` | Creates a clickable button |
+| `<fieldset>` | Groups related form controls |
+| `<legend>` | Gives a fieldset a heading |
+| `<datalist>` | Provides suggested input values |
+| `<output>` | Displays a calculation or result |
+
+### Common input types
+
+| Input type | Purpose |
+|---|---|
+| `text` | General text |
+| `password` | Password input |
 | `email` | Email address |
-| `password` | Password entry |
-| `number` | Numeric input |
+| `number` | Numeric value |
 | `tel` | Telephone number |
-| `url` | Website address |
 | `date` | Date selection |
 | `time` | Time selection |
 | `checkbox` | Multiple independent selections |
 | `radio` | One selection from a group |
 | `file` | File upload |
-| `submit` | Form submission |
-| `reset` | Reset form controls |
+| `submit` | Submits a form |
+| `reset` | Resets form values |
+| `search` | Search input |
+| `url` | Website address |
+| `color` | Colour picker |
+| `range` | Slider input |
+| `hidden` | Hidden form value |
 
-### Example: Contact Form
+### Example: Registration form
 
 ```html
-<form action="/submit" method="post">
+<form action="#" method="post">
 
-    <div>
-        <label for="name">Full Name:</label>
+    <fieldset>
 
+        <legend>Student Registration</legend>
+
+        <!-- Full name input -->
+        <label for="fullname">Full Name:</label>
         <input
             type="text"
-            id="name"
-            name="name"
+            id="fullname"
+            name="fullname"
+            placeholder="Enter your full name"
             required
         >
-    </div>
 
-    <div>
+        <br><br>
+
+        <!-- Email input -->
         <label for="email">Email Address:</label>
-
         <input
             type="email"
             id="email"
             name="email"
+            placeholder="example@email.com"
             required
         >
-    </div>
 
-    <div>
-        <label for="message">Message:</label>
+        <br><br>
+
+        <!-- Password input -->
+        <label for="password">Password:</label>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            minlength="8"
+            required
+        >
+
+        <br><br>
+
+        <!-- Course selection -->
+        <label for="course">Choose Course:</label>
+
+        <select id="course" name="course">
+            <option value="">Select a course</option>
+            <option value="computer-science">Computer Science</option>
+            <option value="networking">Networking</option>
+            <option value="software-engineering">Software Engineering</option>
+        </select>
+
+        <br><br>
+
+        <!-- Gender or other single-choice example -->
+        <p>Select your study mode:</p>
+
+        <input type="radio" id="online" name="study-mode" value="online">
+        <label for="online">Online</label>
+
+        <input type="radio" id="physical" name="study-mode" value="physical">
+        <label for="physical">Physical</label>
+
+        <br><br>
+
+        <!-- Additional information -->
+        <label for="message">Additional Information:</label>
 
         <textarea
             id="message"
             name="message"
-            rows="5"
-            required
+            rows="4"
+            cols="30"
+            placeholder="Tell us about yourself..."
         ></textarea>
-    </div>
 
-    <button type="submit">Send Message</button>
+        <br><br>
+
+        <!-- Form submission button -->
+        <button type="submit">Register</button>
+
+    </fieldset>
 
 </form>
 ```
 
-### 14.3 The `name` Attribute
-
-The `name` attribute identifies the field when the browser submits form data.
-
-```html
-<input type="email" name="email">
-```
-
-Without a `name`, the input's value is generally not included in the submitted form data.
-
-### 14.4 The `required` Attribute
-
-```html
-<input type="email" required>
-```
-
-The browser prevents submission if the required field is empty or invalid.
-
-### 14.5 The `placeholder` Attribute
-
-```html
-<input
-    type="text"
-    placeholder="Enter your full name"
->
-```
-
-A placeholder provides a hint but does not replace a proper label.
-
-### 14.6 Radio Buttons
-
-```html
-<p>Choose your learning level:</p>
-
-<label>
-    <input type="radio" name="level" value="beginner">
-    Beginner
-</label>
-
-<label>
-    <input type="radio" name="level" value="intermediate">
-    Intermediate
-</label>
-```
-
-Radio buttons with the same `name` belong to the same group.
-
-### 14.7 Checkboxes
-
-```html
-<p>Choose your interests:</p>
-
-<label>
-    <input type="checkbox" name="interest" value="html">
-    HTML
-</label>
-
-<label>
-    <input type="checkbox" name="interest" value="css">
-    CSS
-</label>
-```
-
-Checkboxes allow multiple selections.
-
-### 14.8 Dropdown Lists
-
-```html
-<label for="country">Country:</label>
-
-<select id="country" name="country">
-
-    <option value="">Select your country</option>
-
-    <option value="kenya">Kenya</option>
-
-    <option value="uganda">Uganda</option>
-
-    <option value="tanzania">Tanzania</option>
-
-</select>
-```
-
-### 14.9 Fieldsets and Legends
-
-```html
-<fieldset>
-
-    <legend>Personal Information</legend>
-
-    <label for="fullname">Full Name:</label>
-
-    <input type="text" id="fullname" name="fullname">
-
-</fieldset>
-```
-
-`<fieldset>` groups related form controls, while `<legend>` provides a title for the group.
-
-### My takeaway
-
-Forms collect user input, but HTML alone does not store information in a database or send emails. That requires a backend or external service.
+**Important:** HTML can structure a form and provide basic browser validation. A backend or suitable service is needed to process and securely store submitted information. The `action="#"` in this example is only a placeholder, not a working registration endpoint.
 
 ---
 
-## 15. HTML Buttons
+## ⚙️ HTML Attributes
 
-The `<button>` element creates a clickable button.
+Attributes provide additional information about HTML elements.
 
-### Submit Button
-
-```html
-<button type="submit">Submit Form</button>
-```
-
-Submits the form it belongs to.
-
-### Reset Button
-
-```html
-<button type="reset">Reset Form</button>
-```
-
-Resets form controls to their initial values.
-
-### Regular Button
-
-```html
-<button type="button">Click Me</button>
-```
-
-Does not submit a form automatically. It is commonly used with JavaScript.
-
-### Important Note
-
-Inside a form, a button without an explicit `type` may behave as a submit button.
-
-**My takeaway:** I should always specify the button type to make its intended behavior clear.
-
----
-
-## 16. HTML Attributes
-
-Attributes provide additional information or functionality to HTML elements.
-
-### Global Attributes
-
-Global attributes can be used on most HTML elements.
+### Common attributes
 
 | Attribute | Purpose |
 |---|---|
-| `id` | Unique identifier |
-| `class` | Reusable grouping |
-| `style` | Inline CSS |
-| `title` | Advisory information |
-| `lang` | Language |
-| `hidden` | Hides an element |
-| `tabindex` | Controls keyboard focus behavior |
-| `contenteditable` | Allows editing of content |
-| `data-*` | Stores custom data |
+| `id` | Gives an element a unique identifier |
+| `class` | Groups elements for CSS or JavaScript |
+| `style` | Adds inline CSS |
+| `title` | Provides additional information |
+| `href` | Specifies a link destination |
+| `src` | Specifies a resource location |
+| `alt` | Provides alternative image text |
+| `target` | Specifies where a link opens |
+| `type` | Specifies an element's type |
+| `name` | Identifies form data |
+| `value` | Specifies an input value |
+| `placeholder` | Shows an input hint |
+| `required` | Makes an input mandatory |
+| `disabled` | Disables an element |
+| `readonly` | Prevents editing an input |
+| `checked` | Preselects a checkbox or radio button |
+| `selected` | Preselects a dropdown option |
+| `multiple` | Allows multiple selections |
+| `data-*` | Stores custom data on an element |
 
 ### Example
 
 ```html
-<p
-    id="intro"
-    class="description"
-    lang="en"
-    title="Introduction"
->
-    Welcome to my website.
+<p id="intro" class="highlight" title="Introduction paragraph">
+    Welcome to HTML.
 </p>
 ```
 
-### Custom Data Attributes
+Here:
 
-```html
-<button data-user-id="101">
-    View Profile
-</button>
-```
-
-The `data-*` attributes allow developers to store custom information that JavaScript can access.
-
-**My takeaway:** Attributes help customize the behavior, meaning, and identification of HTML elements.
+- `id` identifies the element uniquely.
+- `class` allows CSS to style similar elements.
+- `title` provides extra information.
 
 ---
 
-## 17. HTML Entities and Special Characters
+## 🔣 HTML Entities
 
-Some characters have special meanings in HTML and must be written using character references.
+HTML entities allow you to display reserved characters and special symbols.
 
-| Character | HTML Entity |
+| Entity | Display |
 |---|---|
-| `<` | `&lt;` |
-| `>` | `&gt;` |
-| `&` | `&amp;` |
-| `"` | `&quot;` |
-| Non-breaking space | `&nbsp;` |
-| Copyright | `&copy;` |
-| Registered trademark | `&reg;` |
+| `&lt;` | < |
+| `&gt;` | > |
+| `&amp;` | & |
+| `&quot;` | " |
+| `&apos;` | ' |
+| `&nbsp;` | Non-breaking space |
+| `&copy;` | © |
+| `&reg;` | ® |
+| `&trade;` | ™ |
+
+Example:
+
+```html
+<p>HTML uses &lt;p&gt; to create a paragraph.</p>
+
+<p>&copy; 2026 My Website</p>
+```
+
+---
+
+## 💬 HTML Comments
+
+Comments are notes written inside HTML code.
+
+They are not displayed on the webpage.
+
+```html
+<!-- This is an HTML comment -->
+
+<h1>Welcome</h1>
+
+<!--
+    This is a longer comment.
+    It can explain what a section of code does.
+-->
+```
+
+Comments help developers:
+
+- Explain complicated code.
+- Organize large HTML files.
+- Leave notes for future development.
+- Temporarily document code.
+
+Remember: Comments are visible in the page source, so never place passwords, private keys, or confidential information inside them.
+
+---
+
+## 🔎 HTML Metadata
+
+Metadata provides information about the webpage.
+
+It is usually placed inside the `<head>` element.
+
+### Common metadata elements
+
+```html
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Learning web development from beginner to advanced.">
+
+<meta name="author" content="My Name">
+
+<title>My Website</title>
+```
+
+Metadata helps browsers and search engines understand the webpage.
+
+---
+
+## ♿ Accessibility Basics
+
+Accessibility means making websites usable by as many people as possible, including people who use assistive technologies.
+
+### Important practices
+
+1. Use semantic HTML.
+2. Give meaningful images alternative text.
+3. Associate form labels with their inputs.
+4. Use headings in a logical hierarchy.
+5. Make links descriptive.
+6. Ensure keyboard users can navigate the page.
+7. Do not rely on colour alone to communicate information.
 
 ### Example
+
+Poor practice:
+
+```html
+<img src="laptop.jpg">
+```
+
+Better practice:
+
+```html
+<img src="laptop.jpg" alt="A laptop displaying a code editor">
+```
+
+For decorative images, an empty alternative text can be appropriate:
+
+```html
+<img src="decoration.png" alt="">
+```
+
+---
+
+## 🛠️ HTML Validation and Debugging
+
+HTML validation helps identify errors in webpage structure.
+
+Common mistakes include:
+
+- Forgetting closing tags.
+- Incorrectly nesting elements.
+- Missing quotation marks around attribute values.
+- Using duplicate IDs.
+- Forgetting the `alt` attribute on meaningful images.
+- Misspelling element names.
+- Incorrect file paths.
+
+### Example of incorrect nesting
 
 ```html
 <p>
-    HTML uses &lt;p&gt; to create paragraphs.
-</p>
-
-<p>
-    &copy; 2026 My Web Development Journey
+    <div>Incorrect structure</div>
 </p>
 ```
 
-**My takeaway:** Character references allow me to display special characters without confusing the browser's HTML parser.
-
----
-
-## 18. HTML Comments
-
-Comments help explain code without displaying the comment text on the webpage.
-
-### Example
+### Better structure
 
 ```html
-<!-- This is the main heading -->
-
-<h1>Welcome to My Website</h1>
-
-<!-- This section contains my introduction -->
-
-<section>
-    <p>I am learning web development.</p>
-</section>
+<div>
+    <p>Correct structure</p>
+</div>
 ```
 
-### My takeaway
+### Useful debugging tools
 
-Comments improve code readability, but I should avoid placing passwords, secrets, or sensitive information inside HTML comments because users can view the page source.
-
----
-
-## 19. HTML Metadata and SEO
-
-Metadata provides information about the webpage to browsers, search engines, and other services.
-
-### Example
-
-```html
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="My beginner-friendly web development learning journey."
-    >
-
-    <title>Day 1: HTML Essentials</title>
-
-</head>
-```
-
-### Important Metadata
-
-| Element | Purpose |
-|---|---|
-| `<title>` | Defines the browser tab title |
-| `meta charset` | Specifies character encoding |
-| `meta viewport` | Supports responsive display |
-| `meta description` | Provides a page description |
-| `<link rel="icon">` | Adds a favicon |
-| `<link rel="stylesheet">` | Links an external stylesheet |
-
-### Favicon Example
-
-```html
-<link rel="icon" href="images/favicon.png">
-```
-
-### My takeaway
-
-Good metadata helps browsers display webpages correctly and gives search engines useful information about the page.
-
----
-
-## 20. Accessibility Fundamentals
-
-Accessibility means designing websites so that people with different abilities can use them.
-
-### Important Accessibility Practices
-
-- Use semantic HTML elements.
-- Provide descriptive alternative text for meaningful images.
-- Use proper heading hierarchy.
-- Associate labels with form controls.
-- Ensure links have meaningful text.
-- Make interactive elements usable with a keyboard.
-- Use sufficient color contrast.
-- Do not rely only on color to communicate information.
-
-### Example: Accessible Image
-
-```html
-<img
-    src="images/networking-lab.jpg"
-    alt="Students configuring network switches in a laboratory"
->
-```
-
-### Example: Accessible Form
-
-```html
-<label for="email">Email Address:</label>
-
-<input
-    type="email"
-    id="email"
-    name="email"
-    required
->
-```
-
-### Example: Accessible Navigation
-
-```html
-<nav aria-label="Main navigation">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-</nav>
-```
-
-**My takeaway:** Accessibility is not an optional feature. It is an important part of creating inclusive and professional websites.
-
----
-
-## 21. HTML Validation and Debugging
-
-HTML validation helps me identify errors and improve the quality of my code.
-
-### Common HTML Mistakes
-
-1. Forgetting to close elements.
-2. Incorrectly nesting elements.
-3. Using duplicate IDs.
-4. Forgetting the `alt` attribute on images.
-5. Using headings only for visual sizing.
-6. Forgetting to associate form labels with inputs.
-7. Using outdated HTML attributes.
-8. Forgetting the viewport metadata.
-9. Using incorrect file paths.
-10. Forgetting the `name` attribute on form inputs.
-
-### Browser Developer Tools
-
-When my webpage does not work correctly:
-
-1. Open the webpage in the browser.
-2. Right-click an element.
-3. Select **Inspect**.
-4. Explore the Elements panel.
-5. Check the Console for errors.
-6. Verify that images and linked files load correctly.
+- Browser Developer Tools: Inspect and debug webpage structure.
+- Console: View browser errors and messages.
+- Elements panel: Examine the rendered HTML.
+- Network panel: Check whether images and other resources load correctly.
 
 ### HTML Validator
 
-I can validate my HTML using the official W3C validator.
+Use the official W3C HTML Validator:
 
-[Validate my HTML](https://validator.w3.org/)
+https://validator.w3.org/
 
-**My takeaway:** Writing HTML is not only about making a webpage appear in the browser. I should also ensure the code is valid, accessible, and maintainable.
-
----
-
-## 22. Files in This Directory Explained
-
-### 22.1 `index.html` — The Home Page
-
-- Serves as the landing page for Day 1.
-- Contains a navigation menu using `<nav>`.
-- Uses links to navigate between pages.
-- Demonstrates headings and paragraphs.
-- Includes a structured HTML document.
-
-### 22.2 `about.html` — The About and Feedback Page
-
-This page demonstrates several HTML features.
-
-#### Navigation
-
-```html
-<a href="index.html">Home</a>
-
-<a href="about.html">About</a>
-```
-
-#### Headings and Paragraphs
-
-```html
-<h1>About Me</h1>
-
-<p>This page introduces my web development journey.</p>
-```
-
-#### Lists
-
-```html
-<ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-</ul>
-```
-
-#### Tables
-
-Demonstrates structured information using table rows, headings, and data cells.
-
-#### Forms
-
-Demonstrates form controls such as:
-
-- Text input
-- Email input
-- Textarea
-- Labels
-- Submit buttons
+It helps identify HTML errors and warnings.
 
 ---
 
-## 23. How to View in Browser (Using Live Server)
+## 📁 Project Structure
 
-I use the **VS Code Live Server Extension** to view and test my webpages.
+My Day 1 project uses the following folder structure:
+
+```text
+day-01-html-foundations/
+│
+├── index.html
+│
+├── about.html
+│
+├── contact.html
+│
+├── images/
+│   └── profile.jpg
+│
+└── README.md
+```
+
+### File explanations
+
+| File/Folder | Purpose |
+|---|---|
+| `index.html` | Main homepage |
+| `about.html` | About page |
+| `contact.html` | Contact page |
+| `images/` | Stores images |
+| `README.md` | Documents the project |
+
+As the project grows, I will introduce separate CSS and JavaScript folders.
+
+---
+
+## 🚀 Running the Project
+
+I use **Visual Studio Code** to write and edit HTML.
 
 ### Steps
 
-1. Open `Day1/index.html` in VS Code.
-2. Right-click anywhere inside the file.
-3. Select **Open with Live Server**.
-4. Alternatively, click **Go Live** on the bottom status bar.
-5. The page opens in the browser, usually at:
+1. Open Visual Studio Code.
+2. Open the `day-01-html-foundations` folder.
+3. Create an `index.html` file.
+4. Write the HTML boilerplate.
+5. Save the file.
+6. Install the Live Server extension if it is not already installed.
+7. Right-click `index.html`.
+8. Select **Open with Live Server**.
+9. Your webpage will open in the browser.
 
-   `http://127.0.0.1:5500/Day1/index.html`
+### Alternative
 
-6. Click the **About** link to navigate to `about.html`.
-7. Make changes to my HTML files and save them.
-8. Live Server automatically reloads the browser to show the changes.
+You can also open the HTML file directly in your browser without Live Server.
 
----
-
-## 24. HTML Best Practices
-
-As I continue learning, I want to develop good habits from the beginning.
-
-- Always begin with `<!DOCTYPE html>`.
-- Use semantic HTML elements where appropriate.
-- Keep HTML properly indented and formatted.
-- Use meaningful element names and attributes.
-- Use lowercase element and attribute names.
-- Always quote attribute values.
-- Use descriptive `alt` text for meaningful images.
-- Maintain a logical heading hierarchy.
-- Use unique IDs.
-- Use labels for form controls.
-- Avoid outdated HTML elements and attributes.
-- Keep HTML structure separate from CSS presentation.
-- Validate my HTML regularly.
-- Test my webpages on different browsers and devices.
-- Consider accessibility from the beginning.
+Live Server is helpful because it automatically refreshes the webpage when you save changes.
 
 ---
 
-## 25. External Learning Resources
+## ✅ HTML Best Practices
 
-These resources helped me understand HTML and will support my continued learning.
-
-| Resource | What I Can Learn | Link |
-|---|---|---|
-| W3Schools | Beginner-friendly HTML tutorials and examples | [HTML Tutorial](https://www.w3schools.com/html/) |
-| MDN Web Docs | Detailed HTML documentation | [HTML Documentation](https://developer.mozilla.org/en-US/docs/Web/HTML) |
-| freeCodeCamp | Practical web development lessons | [Free Courses](https://www.freecodecamp.org/learn/) |
-| W3C Validator | Validate and improve HTML code | [HTML Validator](https://validator.w3.org/) |
-| Chrome DevTools | Inspect and debug webpages | [DevTools Documentation](https://developer.chrome.com/docs/devtools/) |
+- Always start with `<!DOCTYPE html>`.
+- Use lowercase HTML element names.
+- Use meaningful and descriptive names for IDs and classes.
+- Indent your code consistently.
+- Use semantic HTML where appropriate.
+- Always include alternative text for meaningful images.
+- Use double quotation marks around attribute values.
+- Keep HTML structure separate from CSS styling.
+- Avoid unnecessary `<div>` elements.
+- Use one primary `<main>` element per page.
+- Keep heading levels logically organized.
+- Validate your HTML.
+- Write comments when they help explain your code.
+- Keep file and folder names organized.
 
 ---
 
-## 26. Day 1 Learning Outcomes
+## 📚 Learning Resources
+
+These are the resources I will use to strengthen my HTML knowledge.
+
+### 1. W3Schools
+
+https://www.w3schools.com/html/
+
+Beginner-friendly tutorials and examples covering HTML elements, attributes, forms, tables, and more.
+
+### 2. MDN Web Docs
+
+https://developer.mozilla.org/en-US/docs/Web/HTML
+
+Detailed documentation explaining HTML elements, attributes, browser behaviour, and web standards.
+
+### 3. freeCodeCamp
+
+https://www.freecodecamp.org/learn/
+
+Interactive lessons and practical exercises for learning web development.
+
+### 4. W3C HTML Validator
+
+https://validator.w3.org/
+
+A tool for checking whether HTML documents follow HTML standards.
+
+---
+
+## 🎯 What I Learned Today
 
 By the end of Day 1, I should be able to:
 
-- [x] Explain what HTML is and why it is important.
-- [x] Explain the difference between HTML, CSS, and JavaScript.
-- [x] Understand how browsers and servers communicate.
-- [x] Create a valid HTML document structure.
-- [x] Understand opening tags, closing tags, and nested elements.
-- [x] Use headings and paragraphs.
-- [x] Format text using HTML elements.
-- [x] Create internal and external links.
-- [x] Display images and media.
-- [x] Create ordered, unordered, and description lists.
-- [x] Understand semantic HTML.
-- [x] Use `<div>` and `<span>` for grouping content.
-- [x] Create structured tables.
-- [x] Build basic forms using input elements.
-- [x] Understand HTML attributes.
-- [x] Use metadata and accessibility practices.
-- [x] Validate and debug HTML.
-- [x] View my webpages using Live Server.
+- Explain what HTML is and why it is important.
+- Explain the difference between HTML, CSS, and JavaScript.
+- Describe how a browser communicates with a web server.
+- Understand HTML tags, elements, and attributes.
+- Write a complete HTML5 boilerplate.
+- Understand the purpose of `<head>` and `<body>`.
+- Structure webpages using semantic HTML.
+- Use headings, paragraphs, links, and images.
+- Create ordered, unordered, and description lists.
+- Build basic HTML tables.
+- Create forms with different input types.
+- Understand the difference between `<div>` and `<span>`.
+- Add comments and metadata.
+- Apply basic accessibility practices.
+- Validate and debug HTML documents.
 
 ---
 
-## 27. Final Reflection
+## 💭 Day 1 Reflection
 
-Today, I learned that HTML is the foundation of web development. It provides the structure and meaning behind every webpage, from simple personal websites to complex web applications.
+Today, I learned that HTML is more than just writing tags. It is about organizing information in a meaningful way so that browsers, search engines, developers, and users can understand the structure of a webpage.
 
-I explored the anatomy of HTML elements, document structure, semantic HTML, headings, paragraphs, links, images, lists, tables, forms, and attributes.
+One of my most important takeaways was understanding semantic HTML and why elements such as `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, and `<footer>` are important.
 
-I also learned the importance of accessibility, validation, and writing clean, maintainable code.
+I also learned that building a good website starts with a strong foundation. Before focusing on colours, animations, and design, I need to understand how to structure content correctly.
 
-Day 1 marks the beginning of my journey toward becoming a skilled software developer. I now understand how to create structured webpages and am ready to move on to styling them with CSS.
-
-**Next:** Day 2 — Introduction to CSS & Styling Fundamentals.
+**My next step:** Move to Day 2 and learn CSS, where I will transform my plain HTML pages into visually attractive and responsive websites.
 
 ---
 
-*Documentation references: [W3Schools HTML](https://www.w3schools.com/html/), [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML), and [W3C HTML Validator](https://validator.w3.org/).*
+**Learning Journey:** HTML → CSS → JavaScript → Responsive Design → Real-World Projects
 
+**Day 1 Status:** HTML Foundations 🚀
